@@ -1,0 +1,1159 @@
+/* ============================================ */
+/* ===== 1. RESET E CONFIGURAÇÕES GLOBAIS ===== */
+/* ============================================ */
+
+/* O seletor * significa "todos os elementos da página" */
+/* Isso remove margens e paddings padrão que os navegadores aplicam */
+* {
+    margin: 0;
+    /* Remove margens externas de todos os elementos */
+    padding: 0;
+    /* Remove espaçamentos internos de todos os elementos */
+    box-sizing: border-box;
+    /* Faz com que padding e bordas não aumentem a largura dos elementos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Define a fonte padrão */
+}
+
+/* Estilos aplicados ao corpo inteiro da página (tag <body>) */
+body {
+    background-color: #f5f5f5;
+    /* Cor de fundo cinza claro */
+    color: #333333;
+    /* Cor do texto cinza escuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Animação suave quando muda de cor */
+    min-height: 100vh;
+    /* Altura mínima = 100% da tela */
+    display: flex;
+    /* Ativa o modo flexbox */
+    flex-direction: column;
+    /* Organiza os elementos em coluna (um embaixo do outro) */
+    padding-top: 80px;
+    /* Espaçamento de pagina pro nev menu */
+}
+
+/* ============================================ */
+/* ===== 2. DARK MODE SIMPLES E SUAVE ========= */
+/* ============================================ */
+
+/* Quando o body tem a classe 'dark-mode', aplica estas cores */
+/* O !important força a aplicação mesmo se houver outra regra conflitante */
+body.dark-mode {
+    background-color: #1a1a1a !important;
+    /* Fundo cinza bem escuro */
+    color: #e0e0e0 !important;
+    /* Texto cinza claro (quase branco) */
+}
+
+/* ----- 2.1 DARK MODE - MENU ----- */
+/* Menu de navegação no dark mode */
+body.dark-mode .nav-menu {
+    background: #2d2d2d !important;
+    /* Fundo do menu mais escuro */
+}
+
+/* Links do menu no dark mode */
+body.dark-mode .nav-menu a {
+    color: #e0e0e0 !important;
+    /* Texto dos links em cinza claro */
+}
+
+/* Hover (passar mouse) nos links do menu em dark mode */
+body.dark-mode .nav-menu a:hover {
+    background: #404040 !important;
+    /* Fundo um tom mais claro ao passar o mouse */
+}
+
+/* Link ativo (página atual) no dark mode */
+body.dark-mode .nav-menu a.active {
+    background: #404040 !important;
+    /* Fundo escuro */
+    color: #ffa500 !important;
+    /* Texto laranja (destaque) */
+}
+
+/* ----- 2.2 DARK MODE - HEADERS ----- */
+/* Cabeçalhos (hero, page-header, profile-header) no dark mode */
+body.dark-mode .hero,
+body.dark-mode .page-header,
+body.dark-mode .profile-header {
+    background: #2d2d2d !important;
+    /* Fundo escuro para os cabeçalhos */
+}
+
+/* ----- 2.3 DARK MODE - SEÇÕES ----- */
+/* Seções de conteúdo no dark mode */
+body.dark-mode .section {
+    background: #2d2d2d !important;
+    /* Fundo escuro */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    /* Sombra preta suave */
+}
+
+/* ----- 2.4 DARK MODE - CARDS ----- */
+/* Todos os tipos de cards no dark mode */
+body.dark-mode .card,
+body.dark-mode .stat-card,
+body.dark-mode .cert-card,
+body.dark-mode .project-card {
+    background: #2d2d2d !important;
+    /* Fundo escuro */
+    border-color: #404040 !important;
+    /* Cor da borda mais escura */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    /* Sombra escura */
+}
+
+/* ----- 2.5 DARK MODE - TEXTOS DOS CARDS ----- */
+/* Textos descritivos dentro dos cards no dark mode */
+body.dark-mode .card p,
+body.dark-mode .stat-card div:not(.stat-number),
+/* Todos divs exceto .stat-number */
+body.dark-mode .cert-desc,
+body.dark-mode .project-body p {
+    color: #b0b0b0 !important;
+    /* Cinza médio para textos secundários */
+}
+
+/* Títulos dos cards no dark mode */
+body.dark-mode .card h3,
+body.dark-mode .cert-card h3,
+body.dark-mode .project-body h3 {
+    color: #ffffff !important;
+    /* Branco puro para títulos */
+}
+
+/* ----- 2.6 DARK MODE - NÚMEROS DOS STATS ----- */
+/* Números grandes das estatísticas no dark mode */
+body.dark-mode .stat-number {
+    background: linear-gradient(135deg, #9f9fff, #b08aff) !important;
+    /* Gradiente roxo claro */
+    -webkit-background-clip: text !important;
+    /* Faz o gradiente preencher apenas o texto */
+    -webkit-text-fill-color: transparent !important;
+    /* Torna o texto transparente para ver o gradiente */
+}
+
+/* ----- 2.7 DARK MODE - INTERESSES ----- */
+/* Itens de interesse no dark mode */
+body.dark-mode .interest-item {
+    background: #404040 !important;
+    /* Fundo escuro */
+    color: #e0e0e0 !important;
+    /* Texto claro */
+}
+
+/* Hover dos itens de interesse no dark mode */
+body.dark-mode .interest-item:hover {
+    background: #667eea !important;
+    /* Fundo azul ao passar o mouse */
+    color: white !important;
+    /* Texto branco */
+}
+
+/* ----- 2.8 DARK MODE - TAGS TECNOLÓGICAS ----- */
+/* Tags de tecnologia nos projetos no dark mode */
+body.dark-mode .tech-tag {
+    background: #404040 !important;
+    /* Fundo escuro */
+    color: #e0e0e0 !important;
+    /* Texto claro */
+}
+
+/* Tags de habilidades no dark mode */
+body.dark-mode .skill-tag {
+    background: #404040 !important;
+    /* Fundo escuro */
+}
+
+/* Hover das tags de habilidades no dark mode */
+body.dark-mode .skill-tag:hover {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2) !important;
+    /* Sombra branca suave */
+}
+
+/* ----- 2.9 DARK MODE - FOOTER ----- */
+/* Rodapé no dark mode */
+body.dark-mode footer {
+    background: #000000 !important;
+    /* Preto puro */
+}
+
+/* ============================================ */
+/* ===== 3. MENU DE NAVEGAÇÃO ================= */
+/* ============================================ */
+
+/* Container do menu de navegação */
+.nav-menu {
+    display: flex;
+    /* Ativa flexbox */
+    gap: 30px;
+    /* Espaçamento de 30px entre os itens */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    padding: 20px;
+    /* Espaçamento interno de 20px */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Gradiente roxo/azul */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    flex-wrap: wrap;
+    /* Permite quebrar linha em telas pequenas */
+}
+
+/* ----- 3.1 LINKS DO MENU ----- */
+/* Estilo dos links dentro do menu */
+.nav-menu a {
+    text-decoration: none;
+    /* Remove o sublinhado padrão */
+    color: white;
+    /* Cor do texto branca */
+    font-size: 1.2em;
+    /* Tamanho da fonte 1.2x maior */
+    font-weight: 600;
+    /* Fonte semi-negrito */
+    padding: 10px 20px;
+    /* Espaçamento interno (vertical 10px, horizontal 20px) */
+    border-radius: 25px;
+    /* Bordas arredondadas (25px) */
+    transition: all 0.3s ease;
+    /* Animação suave em todas as propriedades */
+}
+
+/* Efeito quando passa o mouse nos links */
+.nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    /* Fundo branco semi-transparente */
+    transform: translateY(-2px);
+    /* Move o link 2px para cima */
+}
+
+/* Link ativo (página atual) */
+.nav-menu a.active {
+    background: rgba(255, 255, 255, 0.3);
+    /* Fundo branco mais opaco */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    /* Brilho branco ao redor */
+}
+
+/* ============================================ */
+/* ===== 4. BOTÃO DE TEMA ===================== */
+/* ============================================ */
+
+/* Estilo do botão de alternar tema (claro/escuro) */
+.theme-btn {
+    width: 50px;
+    /* Largura de 50px */
+    height: 50px;
+    /* Altura de 50px (igual à largura para ser circular) */
+    border-radius: 50%;
+    /* Borda arredondada 50% = círculo perfeito */
+    background: darkblue;
+    /* Fundo azul escuro */
+    border: 2px solid white;
+    /* Borda branca de 2px */
+    color: white;
+    /* Cor do texto branca */
+    font-size: 24px;
+    /* Tamanho da fonte 24px (para o emoji) */
+    cursor: pointer;
+    /* Muda o cursor para mãozinha (indicando que é clicável) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra preta suave */
+    transition: all 0.3s ease;
+    /* Animação suave */
+    display: flex;
+    /* Ativa flexbox para centralizar o conteúdo */
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    margin-left: 20px;
+    /* Margem à esquerda para separar dos links */
+}
+
+/* Efeito hover no botão de tema */
+.theme-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    /* Aumenta 10% e gira 15 graus */
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+    /* Sombra branca mais forte */
+}
+
+/* ----- 4.1 DARK MODE DO BOTÃO ----- */
+/* Botão de tema no dark mode */
+body.dark-mode .theme-btn {
+    background: linear-gradient(135deg, #ff6b6b, #c92a2a) !important;
+    /* Gradiente vermelho */
+}
+
+/* ============================================ */
+/* ===== 5. HERO (PÁGINA INICIAL) ============= */
+/* ============================================ */
+
+/* Seção hero da página inicial (cabeçalho com gradiente) */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Gradiente roxo/azul */
+    color: white;
+    /* Texto branco */
+    padding: 80px 20px;
+    /* Espaçamento interno (vertical 80px, horizontal 20px) */
+    text-align: center;
+    /* Texto centralizado */
+    margin-bottom: 40px;
+    /* Margem inferior de 40px */
+}
+
+/* Título principal do hero */
+.hero h1 {
+    font-size: 3em;
+    /* Fonte 3x maior */
+    margin-bottom: 15px;
+    /* Espaçamento inferior de 15px */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Sombra preta no texto */
+}
+
+/* Parágrafo do hero */
+.hero p {
+    font-size: 1.3em;
+    /* Fonte 1.3x maior */
+    max-width: 700px;
+    /* Largura máxima de 700px */
+    margin: 0 auto;
+    /* Centraliza horizontalmente (auto nas laterais) */
+}
+
+/* ============================================ */
+/* ===== 6. PAGE HEADER (OUTRAS PÁGINAS) ====== */
+/* ============================================ */
+
+/* Cabeçalho padrão para outras páginas (sobre, certificados, projetos) */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Título do page-header */
+.page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* ============================================ */
+/* ===== 7. SEÇÃO GENÉRICA ==================== */
+/* ============================================ */
+
+/* Seções de conteúdo em todas as páginas */
+.section {
+    max-width: 800px;
+    /* Largura máxima de 800px */
+    margin: 40px auto;
+    /* Margem vertical 40px, centralizada horizontalmente */
+    padding: 30px;
+    /* Espaçamento interno de 30px */
+    background: white;
+    /* Fundo branco */
+    border-radius: 20px;
+    /* Bordas arredondadas de 20px */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra preta suave */
+    transition: all 0.3s ease;
+    /* Animação suave */
+}
+
+/* Títulos das seções */
+.section h2 {
+    color: #667eea;
+    /* Cor roxa/azul */
+    margin-bottom: 20px;
+    /* Espaçamento inferior de 20px */
+    font-size: 2em;
+    /* Fonte 2x maior */
+    border-left: 5px solid #764ba2;
+    /* Borda esquerda roxa de 5px */
+    padding-left: 20px;
+    /* Espaçamento à esquerda de 20px */
+}
+
+/* ============================================ */
+/* ===== 8. STATS CARDS (PÁGINA INICIAL) ====== */
+/* ============================================ */
+
+/* Container dos cards de estatísticas */
+.stats-container {
+    display: flex;
+    /* Ativa flexbox */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    gap: 30px;
+    /* Espaçamento de 30px entre os cards */
+    flex-wrap: wrap;
+    /* Permite quebrar linha em telas pequenas */
+    margin: 40px 0;
+    /* Margem vertical de 40px */
+}
+
+/* Cada card de estatística */
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 150px;
+    /* Largura mínima de 150px */
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    /* Borda cinza clara */
+}
+
+/* Efeito hover nos cards de estatística */
+.stat-card:hover {
+    transform: translateY(-10px);
+    /* Sobe 10px */
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+    /* Sombra roxa mais forte */
+}
+
+/* Número grande dentro do card de estatística */
+.stat-number {
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    /* Gradiente roxo */
+    -webkit-background-clip: text;
+    /* Gradiente aplicado ao texto */
+    -webkit-text-fill-color: transparent;
+    /* Texto transparente para ver o gradiente */
+    margin-bottom: 10px;
+}
+
+/* ============================================ */
+/* ===== 9. CARDS CONTAINER (PÁGINA INICIAL) == */
+/* ============================================ */
+
+/* Container dos cards de navegação (Sobre, Certificados, Projetos) */
+.cards-container {
+    display: grid;
+    /* Ativa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Colunas responsivas */
+    gap: 30px;
+    /* Espaçamento entre cards */
+    max-width: 1200px;
+    /* Largura máxima */
+    margin: 40px auto;
+    /* Centralizado */
+    padding: 0 20px;
+    /* Espaçamento lateral */
+}
+
+/* Cards de navegação */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+/* Efeito hover nos cards de navegação */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+/* Títulos dos cards de navegação */
+.card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+/* Parágrafos dos cards de navegação */
+.card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    /* Altura da linha (espaçamento entre linhas) */
+}
+
+/* ============================================ */
+/* ===== 10. CERTIFICADOS GRID ================ */
+/* ============================================ */
+
+/* Container dos cards de certificados */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Cada card de certificado */
+.cert-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    /* Para posicionar elementos internos se necessário */
+    text-align: center;
+}
+
+/* Efeito hover nos cards de certificado */
+.cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+/* Ícone do certificado (emoji/imagem) */
+.cert-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+/* Título do certificado */
+.cert-card h3 {
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+/* Instituição/ano do certificado */
+.cert-institution {
+    color: #888;
+    /* Cinza médio */
+    font-size: 0.9em;
+    /* Fonte 10% menor */
+    margin-bottom: 15px;
+}
+
+/* Descrição do certificado */
+.cert-desc {
+    color: #666;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* ----- 10.1 BADGES DOS CERTIFICADOS ----- */
+/* Estilo base dos badges (selos de status) */
+.cert-badge {
+    display: inline-block;
+    /* Permite definir largura/altura */
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* Badge de curso concluído (verde) */
+.cert-badge.completed {
+    background: #4CAF50;
+    /* Verde */
+    color: white;
+}
+
+/* Badge de curso em andamento (laranja) */
+.cert-badge.ongoing {
+    background: #FF9800;
+    /* Laranja */
+    color: white;
+}
+
+/* Badge de curso futuro (roxo) */
+.cert-badge.future {
+    background: #9C27B0;
+    /* Roxo */
+    color: white;
+}
+
+/* ============================================ */
+/* ===== 11. PROJETOS GRID ==================== */
+/* ============================================ */
+
+/* Container dos cards de projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Cada card de projeto */
+.project-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Esconde conteúdo que ultrapasse a borda */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover nos cards de projeto */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+/* Cabeçalho do card de projeto (área colorida com ícone) */
+.project-header {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Ícone do projeto */
+.project-icon {
+    font-size: 3em;
+    background: rgba(255, 255, 255, 0.2); /* Fundo branco semi-transparente */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Círculo */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto; /* Centraliza horizontalmente */
+    color: white;
+
+    white-space: nowrap; /* ✅ impede emojis de quebrar linha */
+}
+
+/* Corpo do card de projeto */
+.project-body {
+    padding: 25px;
+}
+
+/* Título do projeto */
+.project-body h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Descrição do projeto */
+.project-body p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Container das tags de tecnologia */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Tags de tecnologia individuais */
+.tech-tag {
+    background: #f0f0f0;
+    /* Cinza claro */
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* ============================================ */
+/* ===== 12. SKILLS COM EFEITO HOVER ========== */
+/* ============================================ */
+
+/* Container das tags de habilidade */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Tags de habilidade individuais */
+.skill-tag {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+    /* Cursor padrão (não indica clique) */
+    display: inline-block;
+}
+
+/* ----- 12.1 HOVER DOS SKILLS ----- */
+/* Efeito ao passar o mouse nas tags de habilidade */
+.skill-tag:hover {
+    transform: translateY(-3px) scale(1.05);
+    /* Sobe 3px e aumenta 5% */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    /* Sombra roxa */
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    /* Gradiente invertido */
+}
+
+/* ============================================ */
+/* ===== 13. INTERESSES ======================= */
+/* ============================================ */
+
+/* Container dos itens de interesse */
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Itens de interesse individuais */
+.interest-item {
+    background: #f0f0f0;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Efeito hover nos itens de interesse */
+.interest-item:hover {
+    background: #667eea;
+    /* Fundo azul */
+    color: white;
+    /* Texto branco */
+    transform: translateY(-3px);
+    /* Sobe 3px */
+}
+
+/* ============================================ */
+/* ===== 14. QUOTE BOX ======================== */
+/* ============================================ */
+
+/* Caixa de citação/frase */
+.quote-box {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 1.3em;
+    font-style: italic;
+    /* Texto em itálico */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================ */
+/* ===== 15. PROFILE HEADER (SOBRE MIM) ======= */
+/* ============================================ */
+
+/* Cabeçalho do perfil na página sobre mim */
+.profile-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 40px;
+}
+
+/* ----- 15.1 AVATAR DO PERFIL ----- */
+/* Container do avatar/foto de perfil */
+.profile-avatar {
+    font-size: 6em;
+    /* Tamanho do emoji (se não tiver imagem) */
+    background: rgba(255, 255, 255, 0.2);
+    /* Fundo branco semi-transparente */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border: 4px solid white;
+}
+
+/* Idade/localização no perfil */
+.profile-age {
+    font-size: 1.3em;
+    opacity: 0.9;
+    /* 90% de opacidade (levemente transparente) */
+    margin-top: 10px;
+}
+
+/* ============================================ */
+/* ===== 16. BOTÕES =========================== */
+/* ============================================ */
+
+/* Estilo base para botões */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    /* Remove sublinhado */
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    /* Remove borda padrão */
+    cursor: pointer;
+}
+
+/* Efeito hover nos botões */
+.btn:hover {
+    transform: translateY(-2px);
+    /* Sobe 2px */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    /* Sombra roxa */
+}
+
+/* ============================================ */
+/* ===== 17. FOOTER =========================== */
+/* ============================================ */
+
+/* Rodapé da página */
+footer {
+    background: #333;
+    /* Cinza escuro */
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: auto;
+    /* Empurra o footer para baixo (com flexbox) */
+}
+
+/* ============================================ */
+/* ===== 18. RESPONSIVIDADE (CELULAR) ========= */
+/* ============================================ */
+
+/* Media query para telas de até 768px (celulares/tablets) */
+@media (max-width: 768px) {
+
+    /* Menu vira coluna */
+    .nav-menu {
+        flex-direction: column;
+        /* Itens em coluna */
+        gap: 15px;
+        /* Espaçamento menor */
+        padding: 15px;
+    }
+
+    /* Links ocupam 80% da largura */
+    .nav-menu a {
+        width: 80%;
+        /* 80% da largura do container */
+        text-align: center;
+    }
+
+    /* Botão de tema sem margem lateral */
+    .theme-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    /* Títulos menores */
+    .hero h1 {
+        font-size: 2.2em;
+    }
+
+    .page-header h1 {
+        font-size: 2em;
+    }
+
+    /* Stats em coluna */
+    .stats-container {
+        flex-direction: column;
+        /* Itens em coluna */
+        align-items: center;
+    }
+
+    /* Cards ocupam 80% da largura */
+    .stat-card {
+        width: 80%;
+    }
+}
+
+/* ============================================ */
+/* ===== 19. PROFILE AVATAR COM IMAGEM ======== */
+/* ============================================ */
+
+/* SOBRESCREVE a regra anterior do profile-avatar para usar com imagem */
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Esconde partes da imagem que saiam do círculo */
+    margin: 0 auto 20px;
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico para a imagem dentro do avatar */
+#profile-image {
+    width: 100%;
+    /* Ocupa 100% da largura do container */
+    height: 100%;
+    /* Ocupa 100% da altura do container */
+    object-fit: cover;
+    /* Ajusta a imagem para preencher sem distorcer */
+    display: block;
+    /* Remove espaços extras */
+}
+
+/* ----- 19.1 HOVER DA IMAGEM ----- */
+/* Efeito ao passar o mouse sobre o avatar */
+.profile-avatar:hover {
+    transform: scale(1.05);
+    /* Aumenta 5% */
+    transition: transform 0.3s ease;
+    /* Animação suave */
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    /* Sombra branca */
+}
+
+/* ----- 19.2 DARK MODE DA IMAGEM ----- */
+/* Avatar no dark mode */
+body.dark-mode .profile-avatar {
+    border-color: #666;
+    /* Borda cinza em vez de branca */
+}
+
+/* Style pra deixar a parte de cima da página fixa enquanto rolamos para baixo */
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    /* Fica na frente de tudo */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* o resto do seu código... */
+}
+
+/* ============================================ */
+/*
+// ============================================
+// PROPRIEDADES DE POSICIONAMENTO E DISPLAY
+// ============================================
+
+// display: flex // Ativa o modo flexbox, permitindo alinhamento flexível
+// display: grid // Ativa o modo grid, permitindo layout em grade
+// display: block // Faz o elemento ocupar toda a largura e quebrar linha
+// display: inline-block // Permite definir largura/altura mas não quebra linha
+// display: none // Esconde completamente o elemento da página
+
+// position: relative // Posiciona relativo à sua posição original
+// position: absolute // Posiciona relativo ao ancestral mais próximo com position
+// position: fixed // Fixa o elemento na tela (não rola com a página)
+// top: 20px // Distância do topo
+// bottom: 0 // Distância da parte inferior
+// left: 50% // Distância da esquerda
+// right: 0 // Distância da direita
+// z-index: 1000 // Controla a sobreposição (maior valor fica na frente)
+
+// float: left // Faz elemento flutuar à esquerda (texto contorna)
+// float: right // Faz elemento flutuar à direita
+// clear: both // Limpa floats, impedindo elementos de flutuar ao lado
+
+// ============================================
+// PROPRIEDADES DE FLEXBOX
+// ============================================
+
+// flex-direction: row // Organiza itens em linha (horizontal)
+// flex-direction: column // Organiza itens em coluna (vertical)
+// justify-content: center // Centraliza horizontalmente
+// justify-content: space-between // Espaço igual entre itens, grudados nas bordas
+// justify-content: space-around // Espaço igual ao redor dos itens
+// align-items: center // Centraliza verticalmente
+// align-items: flex-start // Alinha ao topo
+// align-items: flex-end // Alinha à base
+// flex-wrap: wrap // Permite quebrar linha em telas pequenas
+// gap: 30px // Espaçamento entre os itens
+// flex: 1 // Faz o item crescer para ocupar espaço disponível
+
+// ============================================
+// PROPRIEDADES DE GRID
+// ============================================
+
+// grid-template-columns: repeat(3, 1fr) // Cria 3 colunas de tamanhos iguais
+// grid-template-columns: 200px 1fr 2fr // Colunas de 200px, 1 parte e 2 partes
+// gap: 20px // Espaçamento entre linhas e colunas
+// grid-column: span 2 // Ocupa 2 colunas
+
+// ============================================
+// PROPRIEDADES DE ESPAÇAMENTO
+// ============================================
+
+// margin: 20px // Espaço EXTERNO em todos os lados
+// margin: 10px 20px // 10px em cima/baixo, 20px esquerda/direita
+// margin-top: 20px // Espaço externo APENAS em cima
+// margin-bottom: 40px // Espaço externo APENAS embaixo
+// margin-left: auto // Empurra elemento para a direita (centraliza)
+// margin: 0 auto // Centraliza horizontalmente
+
+// padding: 20px // Espaço INTERNO em todos os lados
+// padding: 10px 20px // 10px em cima/baixo, 20px esquerda/direita
+// padding-left: 15px // Espaço interno APENAS à esquerda
+
+// ============================================
+// PROPRIEDADES DE TAMANHO
+// ============================================
+
+// width: 100% // Largura de 100% do elemento pai
+// width: 500px // Largura fixa de 500 pixels
+// max-width: 800px // Largura máxima de 800px (pode ser menor)
+// min-width: 150px // Largura mínima de 150px (não fica menor que isso)
+// height: 100% // Altura de 100% do elemento pai
+// height: 50px // Altura fixa de 50 pixels
+// min-height: 100vh // Altura mínima de 100% da tela
+// max-height: 400px // Altura máxima de 400px
+
+// ============================================
+// PROPRIEDADES DE COR E FUNDO
+// ============================================
+
+// color: red // Cor do texto (vermelho)
+// color: #333333 // Cor do texto em hexadecimal (cinza escuro)
+// color: rgb(255, 0, 0) // Cor do texto em RGB (vermelho)
+// background-color: blue // Cor de fundo azul
+// background: linear-gradient(135deg, red, blue) // Gradiente diagonal de vermelho para azul
+// background-image: url('imagem.jpg') // Imagem de fundo
+// background-size: cover // Imagem cobre todo o fundo (pode cortar)
+// background-size: contain // Imagem inteira dentro do fundo (pode sobrar espaço)
+// opacity: 0.5 // Transparência de 50%
+
+// ============================================
+// PROPRIEDADES DE TEXTO
+// ============================================
+
+// font-size: 16px // Tamanho da fonte
+// font-size: 2em // 2x o tamanho da fonte do elemento pai
+// font-weight: bold // Texto em negrito
+// font-weight: 600 // Peso da fonte (400=normal, 700=negrito)
+// font-style: italic // Texto em itálico
+// text-align: center // Texto centralizado
+// text-align: left // Texto à esquerda
+// text-align: right // Texto à direita
+// text-decoration: none // Remove sublinhado de links
+// text-decoration: underline // Adiciona sublinhado
+// text-transform: uppercase // Tudo em maiúsculas
+// text-transform: lowercase // Tudo em minúsculas
+// line-height: 1.6 // Espaçamento entre linhas
+// letter-spacing: 2px // Espaçamento entre letras
+// text-shadow: 2px 2px 4px black // Sombra no texto (horizontal, vertical, borrão, cor)
+
+// ============================================
+// PROPRIEDADES DE BORDA
+// ============================================
+
+// border: 2px solid black // Borda de 2px, sólida, preta
+// border: none // Remove borda
+// border-top: 1px dashed red // Borda superior vermelha tracejada
+// border-radius: 10px // Bordas arredondadas em 10px
+// border-radius: 50% // Borda 50% arredondada = círculo
+// border-left: 5px solid blue // Borda esquerda azul de 5px
+
+// ============================================
+// PROPRIEDADES DE SOMBRA
+// ============================================
+
+// box-shadow: 0 5px 15px rgba(0,0,0,0.2) // Sombra (x, y, borrão, cor)
+// box-shadow: 0 0 15px white // Brilho branco ao redor
+
+// ============================================
+// PROPRIEDADES DE TRANSIÇÃO E ANIMAÇÃO
+// ============================================
+
+// transition: all 0.3s ease // Anima TODAS as mudanças em 0.3s suavemente
+// transition: background-color 0.5s // Anima APENAS mudanças de cor de fundo
+// transform: scale(1.1) // Aumenta elemento em 10%
+// transform: rotate(15deg) // Gira elemento 15 graus
+// transform: translateY(-10px) // Move 10px para cima
+// transform: translateX(20px) // Move 20px para direita
+// transform: scale(1.1) rotate(15deg) // Combina efeitos
+// cursor: pointer // Muda cursor para mãozinha
+// cursor: default // Cursor padrão
+
+// ============================================
+// PSEUDO-CLASSES (ESTADOS)
+// ============================================
+
+// :hover // Quando o mouse passa por cima
+// :active // Quando está sendo clicado
+// :focus // Quando está selecionado (inputs)
+// :visited // Link já visitado
+// :first-child // Primeiro filho do elemento pai
+// :last-child // Último filho
+// :nth-child(2) // Segundo filho
+
+// ============================================
+// PSEUDO-ELEMENTOS
+// ============================================
+
+// ::before // Adiciona conteúdo ANTES do elemento
+// ::after // Adiciona conteúdo DEPOIS do elemento
+// ::first-line // Primeira linha do texto
+// ::first-letter // Primeira letra
+
+// ============================================
+// PROPRIEDADES DE OVERFLOW
+// ============================================
+
+// overflow: hidden // Esconde conteúdo que ultrapassa o elemento
+// overflow: scroll // Adiciona barras de rolagem
+// overflow: auto // Adiciona barras se necessário
+// overflow: visible // Mostra conteúdo mesmo se ultrapassar (padrão)
+
+// ============================================
+// PROPRIEDADES DE LISTA
+// ============================================
+
+// list-style: none // Remove marcadores de lista
+// list-style-type: circle // Marcadores circulares
+
+// ============================================
+// MEDIA QUERIES (RESPONSIVIDADE)
+// ============================================
+
+// @media (max-width: 768px) // Aplica regras em telas de até 768px
+// @media (min-width: 1024px) // Aplica regras em telas acima de 1024px
+// @media (orientation: portrait) // Aplica em modo retrato (vertical)
+
+// ============================================
+// PROPRIEDADES DE OBJETO (IMAGENS)
+// ============================================
+
+// object-fit: cover // Ajusta imagem para preencher sem distorcer (corta)
+// object-fit: contain // Ajusta para caber inteira (pode sobrar espaço)
+// object-fit: fill // Estica para preencher (pode distorcer)
+
+// ============================================
+// PROPRIEDADES DE POSICIONAMENTO AVANÇADO
+// ============================================
+
+// vertical-align: middle // Alinhamento vertical (em tabelas/inline)
+// white-space: nowrap // Impede quebra de linha
+// word-wrap: break-word // Quebra palavras longas
+*/

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Guilherme Teles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav-menu">
+        <a href="index.html">🏠 Início</a>
+        <a href="sobre.html" class="active">👤 Sobre Mim</a>
+        <a href="certificados.html">📜 Certificados</a>
+        <a href="projetos.html">💻 Projetos</a>
+        <button class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </div>
+
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <!-- IMAGEM COM MAPA -->
+            <img id="profile-image" src="../components/eu.jpeg" alt="Guilherme Teles" usemap="#instagram-map">
+            
+            <!-- DEFINIÇÃO DO MAPA -->
+            <map name="instagram-map">
+                <!-- Área clicável que cobre toda a imagem -->
+                <area shape="rect" coords="0,0,150,150" href="https://instagram.com/Guilherme_com_h" target="_blank" alt="Instagram">
+                
+                <!-- Se quiser uma área menor (ex: só o rosto), precisaria das coordenadas exatas -->
+            </map>
+        </div>
+        <h1>Guilherme Teles Pacheco</h1>
+        <p class="profile-age">18 anos • Brasil</p>
+    </div>
+
+    <div class="section">
+        <h2>Minha História</h2>
+        <p>
+            Fiquei fascinado pela tecnologia e entrei nesse mundo da programação,
+            planejo fazer vários cursos pela internet (principalmente os gratuitos) e vou catalogando eles nesse site,
+            como se fosse um Portifólio pessoal.
+            Caso queira fazer contato pelo gmail - guilhermetelespacheco30@gmail.com
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>O que estou estudando</h2>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Excel</span>
+            <span class="skill-tag">React (em breve)</span>
+            <span class="skill-tag">Node.js (em breve)</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Meus interesses</h2>
+        <div class="interests-container">
+            <span class="interest-item">🎮 Games</span>
+            <span class="interest-item">🎵 Música</span>
+            <span class="interest-item">🏋️ Academia</span>
+            <span class="interest-item">🌐 Tecnologia</span>
+        </div>
+    </div>
+
+    <div class="quote-box">
+        <p>"Quem pouco fala, muito vive.<br>Assinado: AuthenticGames"</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Guilherme Teles Pacheco • Todos os direitos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

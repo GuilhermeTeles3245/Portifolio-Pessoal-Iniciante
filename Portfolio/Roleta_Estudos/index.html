@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- conecta o CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Roleta dos Estudos</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 id="titulo">🎲 Roleta dos Estudos</h1>
+
+    <p class="descricao">
+        Crie uma lista com os cursos que você está estudando.
+        A roleta vai sortear a próxima aula de forma aleatória,
+        mantendo a ordem crescente dentro de cada curso.
+    </p>
+
+    <div class="exemplo">
+        <p><strong>Exemplo de lista:</strong></p>
+
+        <ul>
+            <li>📘 HTML (10 aulas)</li>
+            <li>📗 CSS (8 aulas)</li>
+            <li>📙 JavaScript (12 aulas)</li>
+        </ul>
+
+        <p>A ordem sorteada pode ser algo como:</p>
+
+        <div class="exemplo-lista">
+            <span>1º JavaScript - 1</span>
+            <span>2º HTML - 1</span>
+            <span>3º CSS - 1</span>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label for="playlist-input">Nome do curso:</label>
+
+        <input
+            type="text"
+            id="playlist-input"
+            placeholder="Ex: JavaScript, HTML, CSS">
+    </div>
+
+    <div class="input-group">
+        <label for="number-input">Quantidade de Conteúdo:</label>
+
+        <input
+            type="text"
+            id="number-input"
+            placeholder="Ex: 10, 8, 12">
+    </div>
+
+    <button class="btn" onclick="embaralhar()">
+        🎯 Sortear Próxima Aula
+    </button>
+
+    <!-- ✅ NOVO BOTÃO / LINK -->
+    <a href="../projetos.html" class="btn link-btn">
+        🔗 Abrir outra página
+    </a>
+
+    <div class="resultado" id="resultado">
+        ⏳ Clique no botão para sortear
+    </div>
+
+    <ul id="exemplo-lista" class="exemplo-lista distancia_topo"></ul>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

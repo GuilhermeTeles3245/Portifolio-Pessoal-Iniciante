@@ -1,0 +1,125 @@
+/* ===== RESET BÁSICO ===== */
+/* Remove espaçamentos padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== ESTILO GERAL DA PÁGINA ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a; /* fundo escuro */
+    color: white;
+    text-align: center;
+
+    /* centraliza o conteúdo verticalmente */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 20px;
+}
+
+/* ===== PLACAR ===== */
+#scoreboard {
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* cada caixa do placar */
+.score {
+    background: #1e293b;
+    padding: 15px 25px;
+    border-radius: 8px;
+}
+
+/* número do placar */
+.score span {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* ===== BOTÕES DE ESCOLHA ===== */
+.buttons {
+    margin: 15px 0;
+}
+
+/* estilo dos botões */
+.choice {
+    background: #334155;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* efeito quando passa o mouse */
+.choice:hover {
+    background: #475569;
+}
+
+/* ===== ÁREA DE RESULTADO ===== */
+#result-area {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* mostra as jogadas lado a lado */
+.plays {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+/* emoji das jogadas */
+.play span {
+    font-size: 2rem;
+}
+
+/* ===== BOTÃO RESET ===== */
+#controls {
+    margin: 20px;
+}
+
+#reset-game {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+}
+
+/* efeito hover do botão reset */
+#reset-game:hover {
+    background: #dc2626;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: auto; /* empurra o footer pra baixo */
+    padding: 15px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+#winner {
+    padding-top: 15px;
+}
+

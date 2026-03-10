@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Papel e Tesoura</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>✊ Pedra, 📄 Papel e ✂️ Tesoura</h1>
+        <p>Escolha sua jogada e enfrente o computador!</p>
+    </header>
+
+    <!-- ===== PLACAR ===== -->
+    <section id="scoreboard">
+        <div class="score">
+            <h2>Você</h2>
+            <span id="player-score">0</span>
+        </div>
+
+        <div class="score">
+            <h2>Computador</h2>
+            <span id="computer-score">0</span>
+        </div>
+    </section>
+
+    <!-- ===== ÁREA DO JOGO ===== -->
+    <main>
+
+        <!-- Escolhas do jogador -->
+        <section id="choices">
+            <h2>Faça sua escolha:</h2>
+
+            <div class="buttons">
+                <button class="choice" id="rock" onclick="jogada_pedra()">✊</button>
+                <button class="choice" id="paper" onclick="jogada_papel()">📄</button>
+                <button class="choice" id="scissors" onclick="jogada_tesoura()">✂️</button>
+            </div>
+        </section>
+
+        <!-- Resultado -->
+        <section id="result-area">
+            <h2>Resultado</h2>
+
+            <p id="round-result">
+                Escolha uma opção para começar!
+            </p>
+
+            <div class="plays">
+                <div class="play">
+                    <h3>Sua jogada</h3>
+                    <span id="player-choice">❔</span>
+                </div>
+
+                <div class="play">
+                    <h3>Computador</h3>
+                    <span id="computer-choice">❔</span>
+                </div>
+            </div>
+        </section>
+        <h2 id="winner">Vencedor: </h2>
+
+    </main>
+
+    <!-- ===== BOTÃO RESET ===== -->
+    <section id="controls">
+        <button id="reset-game" onclick="reiniciar()">Reiniciar Jogo</button>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>Projeto de aprendizado em HTML, CSS e JavaScript</p>
+
+        <div class="buttons">
+            <a href="../projetos.html">
+                <button class="choice">Voltar pro Portfólio!</button>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
