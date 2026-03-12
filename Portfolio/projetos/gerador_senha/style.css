@@ -1,0 +1,103 @@
+/* Reset básico (remove margens padrão do navegador) */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Centraliza tudo na tela */
+body{
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white; 
+}
+
+/* Caixa principal */
+.container{
+    background: blue;
+    padding: 20px;
+    border-radius: 10px; /* borda arredondada */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* sombra leve */
+    text-align: center;
+    width: 300px;
+}
+
+/* Título */
+h1{
+    margin-bottom: 15px;
+}
+
+/* Agrupamento das opções */
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* espaço entre elementos */
+}
+
+/* Estilo dos inputs */
+input[type="number"],
+input[type="text"]{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Área dos checkboxes */
+.opcoes{
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Botões */
+button{
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efeito quando passa o mouse */
+button:hover{
+    background: #45a049;
+}
+
+/* Área do resultado */
+.resultado{
+    display: flex;
+    gap: 5px;
+}
+
+/* Campo da senha ocupa mais espaço */
+#senha{
+    flex: 1;
+}
+
+input[type="checkbox"]{
+    display: block;
+}
+
+.opcoes label{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#link{
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: #4CAF50; /* verde mais escuro */
+    transition: 0.3s;
+}
+
+#link:hover{
+    background-color: #45a049;
+}

@@ -239,6 +239,12 @@ body.dark-mode footer {
     /* Brilho branco ao redor */
 }
 
+/* LINK PERSONALIZADO */
+#link{
+    color:#00f;
+    text-decoration:none;
+}
+
 /* ============================================ */
 /* ===== 4. BOTÃO DE TEMA ===================== */
 /* ============================================ */
@@ -951,6 +957,7 @@ body.dark-mode .profile-avatar {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     /* o resto do seu código... */
 }
+
 
 /* ============================================ */
 /*

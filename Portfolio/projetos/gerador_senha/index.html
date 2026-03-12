@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerador de Senhas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gerador de Senha 🔐</h1>
+
+        <div class="box">
+
+            <label>Tamanho da senha:</label>
+
+            <input type="number" id="tamanho" min="4" max="50" value="10">
+
+            <div class="opcoes">
+
+                <label>
+                    <input type="checkbox" id="minusculas" checked>
+                    Incluir letras minúsculas
+                </label>
+
+                <label>
+                    <input type="checkbox" id="numeros" checked>
+                    Incluir números
+                </label>
+
+                <label>
+                    <input type="checkbox" id="maiusculas" checked>
+                    Incluir letras maiúsculas
+                </label>
+
+                <label>
+                    <input type="checkbox" id="simbolos">
+                    Incluir símbolos
+                </label>
+
+            </div>
+
+            <button onclick="gerarSenha()">
+                Gerar senha
+            </button>
+
+            <div class="resultado">
+
+                <input type="text" id="senha" readonly>
+
+                <button onclick="copiarSenha()">
+                    Copiar
+                </button>
+
+            </div>
+
+            <a id="link" href="../../pages/projetos.html">Volte pro Portfólio</a>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
