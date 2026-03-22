@@ -3,75 +3,140 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Início - Guilherme Teles</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="nav-menu">
-        <a href="index.html" class="active">🏠 Início</a>
-        <a href="pages/sobre.html">👤 Sobre Mim</a>
-        <a href="pages/certificados.html">📜 Certificados</a>
-        <a href="pages/projetos.html">💻 Projetos</a>
-        <button class="theme-btn" onclick="toggleTheme()">☀️</button>
+        <a href="index.html" class="active">
+            🏠 Início
+        </a>
+        <a href="pages/sobre.html">
+            👤 Sobre
+        </a>
+        <a href="pages/conteudos.html">
+            📜 Conteúdos
+        </a>
+        <a href="pages/projetos.html">
+            💻 Projetos
+        </a>
+        <button class="theme-btn" onclick="toggleTheme()">
+            ☀️
+        </button>
     </div>
 
     <div class="hero">
-        <h1>Guilherme Teles Pacheco</h1>
-        <a>Desenvolvedor Web em formação • 18 anos • Apaixonado por tecnologia.<br>Caso alguns cards estiverem zerados,
-            eles atualizam quando vão em <a href="pages/certificados.html">certificiados</a>.</p>
+        <h1>
+            Guilherme Teles Pacheco
+        </h1>
+        <p>
+            Desenvolvedor Web em formação • 18 anos • Apaixonado por tecnologia.
+        </p>
+        <p>
+            Caso alguns cards estiverem zerados,
+            eles atualizam quando você acessa os
+            <a id="link" href="pages/conteudos.html">
+                conteúdos
+            </a>
+        </p>
     </div>
 
     <div class="stats-container">
         <div class="stat-card">
-            <div class="stat-number">2</div>
-            <div>Meses de estudo</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div>Projetos criados</div>
-        </div>
-        <div class="stat-card">
-            <div id="em_andamento" class="stat-number">3</div>
-            <div>Cursos em andamento</div>
-        </div>
-        <div class="stat-card">
-            <div id="finalizados" class="stat-number">5</div>
-            <div>Cursos finalizados</div>
+            <div class="stat-number">
+                2
+            </div>
+            <div>
+                Meses de estudo
+            </div>
         </div>
 
+        <div class="stat-card">
+            <div class="stat-number">
+                3
+            </div>
+            <div>
+                Projetos criados
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div id="em_andamento" class="stat-number">
+                0
+            </div>
+            <div>
+                Em andamento
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div id="finalizados" class="stat-number">
+                0
+            </div>
+            <div>
+                Finalizados
+            </div>
+        </div>
     </div>
 
     <div class="section">
-        <h2>🚀 Bem-vindo ao meu portfólio</h2>
+        <h2>
+            🚀 Bem-vindo ao meu portfólio
+        </h2>
         <p>
             Explore minhas páginas para conhecer mais sobre mim,
             meus certificados e projetos.
-            Estou em constante evolução e sempre buscando novos desafios! :)
+            Estou em constante evolução e sempre buscando novos desafios.
         </p>
     </div>
 
     <div class="cards-container">
         <div class="card">
-            <h3>👤 Sobre Mim</h3>
-            <p>Conheça minha história, meus interesses e minha jornada na programação.</p>
-            <a href="pages/sobre.html" class="btn">Saiba mais →</a>
+            <h3>
+                👤 Sobre Mim
+            </h3>
+            <p>
+                Conheça minha história,
+                interesses e jornada na programação.
+            </p>
+            <a href="pages/sobre.html" class="btn">
+                Saiba mais →
+            </a>
         </div>
+
         <div class="card">
-            <h3>📜 Certificados</h3>
-            <p>Veja os cursos que já concluí e minhas qualificações.</p>
-            <a href="pages/certificados.html" class="btn">Ver certificados →</a>
+            <h3>
+                📜 Conteúdos
+            </h3>
+            <p>
+                Veja os cursos/conteúdos que já concluí
+                e minhas qualificações.
+            </p>
+            <a href="pages/conteudos.html" class="btn">
+                Ver conteúdos →
+            </a>
         </div>
+
         <div class="card">
-            <h3>💻 Projetos</h3>
-            <p>Confira os projetos que desenvolvi durante meus estudos.</p>
-            <a href="pages/projetos.html" class="btn">Ver projetos →</a>
+            <h3>
+                💻 Projetos
+            </h3>
+            <p>
+                Confira os projetos
+                que desenvolvi durante meus estudos.
+            </p>
+            <a href="pages/projetos.html" class="btn">
+                Ver projetos →
+            </a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Guilherme Teles Pacheco • Todos os direitos reservados</p>
+        <p>
+            © 2026 Guilherme Teles Pacheco
+        </p>
     </footer>
 
     <script src="js/script.js"></script>

@@ -2,949 +2,137 @@
 /* ===== 1. RESET E CONFIGURAÇÕES GLOBAIS ===== */
 /* ============================================ */
 
-/* O seletor * significa "todos os elementos da página" */
-/* Isso remove margens e paddings padrão que os navegadores aplicam */
 * {
     margin: 0;
-    /* Remove margens externas de todos os elementos */
     padding: 0;
-    /* Remove espaçamentos internos de todos os elementos */
     box-sizing: border-box;
-    /* Faz com que padding e bordas não aumentem a largura dos elementos */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Define a fonte padrão */
 }
 
-/* Estilos aplicados ao corpo inteiro da página (tag <body>) */
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     background-color: #f5f5f5;
-    /* Cor de fundo cinza claro */
     color: #333333;
-    /* Cor do texto cinza escuro */
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Animação suave quando muda de cor */
     min-height: 100vh;
-    /* Altura mínima = 100% da tela */
     display: flex;
-    /* Ativa o modo flexbox */
     flex-direction: column;
-    /* Organiza os elementos em coluna (um embaixo do outro) */
-    padding-top: 80px;
-    /* Espaçamento de pagina pro nev menu */
+    padding-top: 60px;
 }
 
 /* ============================================ */
-/* ===== 2. DARK MODE SIMPLES E SUAVE ========= */
+/* ===== 2. DARK MODE ========================= */
 /* ============================================ */
 
-/* Quando o body tem a classe 'dark-mode', aplica estas cores */
-/* O !important força a aplicação mesmo se houver outra regra conflitante */
 body.dark-mode {
     background-color: #1a1a1a !important;
-    /* Fundo cinza bem escuro */
     color: #e0e0e0 !important;
-    /* Texto cinza claro (quase branco) */
 }
 
-/* ----- 2.1 DARK MODE - MENU ----- */
-/* Menu de navegação no dark mode */
 body.dark-mode .nav-menu {
-    background: #2d2d2d !important;
-    /* Fundo do menu mais escuro */
+    background: #1a1a1a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Links do menu no dark mode */
 body.dark-mode .nav-menu a {
     color: #e0e0e0 !important;
-    /* Texto dos links em cinza claro */
 }
 
-/* Hover (passar mouse) nos links do menu em dark mode */
 body.dark-mode .nav-menu a:hover {
-    background: #404040 !important;
-    /* Fundo um tom mais claro ao passar o mouse */
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Link ativo (página atual) no dark mode */
 body.dark-mode .nav-menu a.active {
-    background: #404040 !important;
-    /* Fundo escuro */
-    color: #ffa500 !important;
-    /* Texto laranja (destaque) */
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white !important;
 }
 
-/* ----- 2.2 DARK MODE - HEADERS ----- */
-/* Cabeçalhos (hero, page-header, profile-header) no dark mode */
 body.dark-mode .hero,
 body.dark-mode .page-header,
 body.dark-mode .profile-header {
     background: #2d2d2d !important;
-    /* Fundo escuro para os cabeçalhos */
 }
 
-/* ----- 2.3 DARK MODE - SEÇÕES ----- */
-/* Seções de conteúdo no dark mode */
 body.dark-mode .section {
     background: #2d2d2d !important;
-    /* Fundo escuro */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
-    /* Sombra preta suave */
 }
 
-/* ----- 2.4 DARK MODE - CARDS ----- */
-/* Todos os tipos de cards no dark mode */
 body.dark-mode .card,
 body.dark-mode .stat-card,
 body.dark-mode .cert-card,
 body.dark-mode .project-card {
     background: #2d2d2d !important;
-    /* Fundo escuro */
     border-color: #404040 !important;
-    /* Cor da borda mais escura */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
-    /* Sombra escura */
 }
 
-/* ----- 2.5 DARK MODE - TEXTOS DOS CARDS ----- */
-/* Textos descritivos dentro dos cards no dark mode */
 body.dark-mode .card p,
 body.dark-mode .stat-card div:not(.stat-number),
-/* Todos divs exceto .stat-number */
 body.dark-mode .cert-desc,
 body.dark-mode .project-body p {
     color: #b0b0b0 !important;
-    /* Cinza médio para textos secundários */
 }
 
-/* Títulos dos cards no dark mode */
 body.dark-mode .card h3,
 body.dark-mode .cert-card h3,
 body.dark-mode .project-body h3 {
     color: #ffffff !important;
-    /* Branco puro para títulos */
 }
 
-/* ----- 2.6 DARK MODE - NÚMEROS DOS STATS ----- */
-/* Números grandes das estatísticas no dark mode */
 body.dark-mode .stat-number {
     background: linear-gradient(135deg, #9f9fff, #b08aff) !important;
-    /* Gradiente roxo claro */
     -webkit-background-clip: text !important;
-    /* Faz o gradiente preencher apenas o texto */
     -webkit-text-fill-color: transparent !important;
-    /* Torna o texto transparente para ver o gradiente */
+    background-clip: text !important;
 }
 
-/* ----- 2.7 DARK MODE - INTERESSES ----- */
-/* Itens de interesse no dark mode */
 body.dark-mode .interest-item {
     background: #404040 !important;
-    /* Fundo escuro */
     color: #e0e0e0 !important;
-    /* Texto claro */
 }
 
-/* Hover dos itens de interesse no dark mode */
 body.dark-mode .interest-item:hover {
     background: #667eea !important;
-    /* Fundo azul ao passar o mouse */
     color: white !important;
-    /* Texto branco */
 }
 
-/* ----- 2.8 DARK MODE - TAGS TECNOLÓGICAS ----- */
-/* Tags de tecnologia nos projetos no dark mode */
 body.dark-mode .tech-tag {
     background: #404040 !important;
-    /* Fundo escuro */
     color: #e0e0e0 !important;
-    /* Texto claro */
 }
 
-/* Tags de habilidades no dark mode */
 body.dark-mode .skill-tag {
-    background: #404040 !important;
-    /* Fundo escuro */
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
 }
 
-/* Hover das tags de habilidades no dark mode */
 body.dark-mode .skill-tag:hover {
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2) !important;
-    /* Sombra branca suave */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.5) !important;
 }
 
-/* ----- 2.9 DARK MODE - FOOTER ----- */
-/* Rodapé no dark mode */
 body.dark-mode footer {
     background: #000000 !important;
-    /* Preto puro */
+}
+
+body.dark-mode .theme-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #ffd966 !important;
+}
+
+body.dark-mode .theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.1) rotate(15deg);
 }
 
 /* ============================================ */
 /* ===== 3. MENU DE NAVEGAÇÃO ================= */
 /* ============================================ */
-
-/* Container do menu de navegação */
-.nav-menu {
-    display: flex;
-    /* Ativa flexbox */
-    gap: 30px;
-    /* Espaçamento de 30px entre os itens */
-    justify-content: center;
-    /* Centraliza horizontalmente */
-    align-items: center;
-    /* Centraliza verticalmente */
-    padding: 20px;
-    /* Espaçamento interno de 20px */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* Gradiente roxo/azul */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Sombra suave */
-    flex-wrap: wrap;
-    /* Permite quebrar linha em telas pequenas */
-}
-
-/* ----- 3.1 LINKS DO MENU ----- */
-/* Estilo dos links dentro do menu */
-.nav-menu a {
-    text-decoration: none;
-    /* Remove o sublinhado padrão */
-    color: white;
-    /* Cor do texto branca */
-    font-size: 1.2em;
-    /* Tamanho da fonte 1.2x maior */
-    font-weight: 600;
-    /* Fonte semi-negrito */
-    padding: 10px 20px;
-    /* Espaçamento interno (vertical 10px, horizontal 20px) */
-    border-radius: 25px;
-    /* Bordas arredondadas (25px) */
-    transition: all 0.3s ease;
-    /* Animação suave em todas as propriedades */
-}
-
-/* Efeito quando passa o mouse nos links */
-.nav-menu a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    /* Fundo branco semi-transparente */
-    transform: translateY(-2px);
-    /* Move o link 2px para cima */
-}
-
-/* Link ativo (página atual) */
-.nav-menu a.active {
-    background: rgba(255, 255, 255, 0.3);
-    /* Fundo branco mais opaco */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    /* Brilho branco ao redor */
-}
-
-/* LINK PERSONALIZADO */
-#link{
-    color:#00f;
-    text-decoration:none;
-}
-
-/* ============================================ */
-/* ===== 4. BOTÃO DE TEMA ===================== */
-/* ============================================ */
-
-/* Estilo do botão de alternar tema (claro/escuro) */
-.theme-btn {
-    width: 50px;
-    /* Largura de 50px */
-    height: 50px;
-    /* Altura de 50px (igual à largura para ser circular) */
-    border-radius: 50%;
-    /* Borda arredondada 50% = círculo perfeito */
-    background: darkblue;
-    /* Fundo azul escuro */
-    border: 2px solid white;
-    /* Borda branca de 2px */
-    color: white;
-    /* Cor do texto branca */
-    font-size: 24px;
-    /* Tamanho da fonte 24px (para o emoji) */
-    cursor: pointer;
-    /* Muda o cursor para mãozinha (indicando que é clicável) */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Sombra preta suave */
-    transition: all 0.3s ease;
-    /* Animação suave */
-    display: flex;
-    /* Ativa flexbox para centralizar o conteúdo */
-    align-items: center;
-    /* Centraliza verticalmente */
-    justify-content: center;
-    /* Centraliza horizontalmente */
-    margin-left: 20px;
-    /* Margem à esquerda para separar dos links */
-}
-
-/* Efeito hover no botão de tema */
-.theme-btn:hover {
-    transform: scale(1.1) rotate(15deg);
-    /* Aumenta 10% e gira 15 graus */
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
-    /* Sombra branca mais forte */
-}
-
-/* ----- 4.1 DARK MODE DO BOTÃO ----- */
-/* Botão de tema no dark mode */
-body.dark-mode .theme-btn {
-    background: linear-gradient(135deg, #ff6b6b, #c92a2a) !important;
-    /* Gradiente vermelho */
-}
-
-/* ============================================ */
-/* ===== 5. HERO (PÁGINA INICIAL) ============= */
-/* ============================================ */
-
-/* Seção hero da página inicial (cabeçalho com gradiente) */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    /* Gradiente roxo/azul */
-    color: white;
-    /* Texto branco */
-    padding: 80px 20px;
-    /* Espaçamento interno (vertical 80px, horizontal 20px) */
-    text-align: center;
-    /* Texto centralizado */
-    margin-bottom: 40px;
-    /* Margem inferior de 40px */
-}
-
-/* Título principal do hero */
-.hero h1 {
-    font-size: 3em;
-    /* Fonte 3x maior */
-    margin-bottom: 15px;
-    /* Espaçamento inferior de 15px */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    /* Sombra preta no texto */
-}
-
-/* Parágrafo do hero */
-.hero p {
-    font-size: 1.3em;
-    /* Fonte 1.3x maior */
-    max-width: 700px;
-    /* Largura máxima de 700px */
-    margin: 0 auto;
-    /* Centraliza horizontalmente (auto nas laterais) */
-}
-
-/* ============================================ */
-/* ===== 6. PAGE HEADER (OUTRAS PÁGINAS) ====== */
-/* ============================================ */
-
-/* Cabeçalho padrão para outras páginas (sobre, certificados, projetos) */
-.page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Título do page-header */
-.page-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-/* ============================================ */
-/* ===== 7. SEÇÃO GENÉRICA ==================== */
-/* ============================================ */
-
-/* Seções de conteúdo em todas as páginas */
-.section {
-    max-width: 800px;
-    /* Largura máxima de 800px */
-    margin: 40px auto;
-    /* Margem vertical 40px, centralizada horizontalmente */
-    padding: 30px;
-    /* Espaçamento interno de 30px */
-    background: white;
-    /* Fundo branco */
-    border-radius: 20px;
-    /* Bordas arredondadas de 20px */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    /* Sombra preta suave */
-    transition: all 0.3s ease;
-    /* Animação suave */
-}
-
-/* Títulos das seções */
-.section h2 {
-    color: #667eea;
-    /* Cor roxa/azul */
-    margin-bottom: 20px;
-    /* Espaçamento inferior de 20px */
-    font-size: 2em;
-    /* Fonte 2x maior */
-    border-left: 5px solid #764ba2;
-    /* Borda esquerda roxa de 5px */
-    padding-left: 20px;
-    /* Espaçamento à esquerda de 20px */
-}
-
-/* ============================================ */
-/* ===== 8. STATS CARDS (PÁGINA INICIAL) ====== */
-/* ============================================ */
-
-/* Container dos cards de estatísticas */
-.stats-container {
-    display: flex;
-    /* Ativa flexbox */
-    justify-content: center;
-    /* Centraliza horizontalmente */
-    gap: 30px;
-    /* Espaçamento de 30px entre os cards */
-    flex-wrap: wrap;
-    /* Permite quebrar linha em telas pequenas */
-    margin: 40px 0;
-    /* Margem vertical de 40px */
-}
-
-/* Cada card de estatística */
-.stat-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    min-width: 150px;
-    /* Largura mínima de 150px */
-    transition: all 0.3s ease;
-    border: 1px solid #e0e0e0;
-    /* Borda cinza clara */
-}
-
-/* Efeito hover nos cards de estatística */
-.stat-card:hover {
-    transform: translateY(-10px);
-    /* Sobe 10px */
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-    /* Sombra roxa mais forte */
-}
-
-/* Número grande dentro do card de estatística */
-.stat-number {
-    font-size: 3em;
-    font-weight: bold;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    /* Gradiente roxo */
-    -webkit-background-clip: text;
-    /* Gradiente aplicado ao texto */
-    -webkit-text-fill-color: transparent;
-    /* Texto transparente para ver o gradiente */
-    margin-bottom: 10px;
-}
-
-/* ============================================ */
-/* ===== 9. CARDS CONTAINER (PÁGINA INICIAL) == */
-/* ============================================ */
-
-/* Container dos cards de navegação (Sobre, Certificados, Projetos) */
-.cards-container {
-    display: grid;
-    /* Ativa CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* Colunas responsivas */
-    gap: 30px;
-    /* Espaçamento entre cards */
-    max-width: 1200px;
-    /* Largura máxima */
-    margin: 40px auto;
-    /* Centralizado */
-    padding: 0 20px;
-    /* Espaçamento lateral */
-}
-
-/* Cards de navegação */
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #e0e0e0;
-    text-align: center;
-}
-
-/* Efeito hover nos cards de navegação */
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-}
-
-/* Títulos dos cards de navegação */
-.card h3 {
-    color: #667eea;
-    margin-bottom: 15px;
-    font-size: 1.8em;
-}
-
-/* Parágrafos dos cards de navegação */
-.card p {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    /* Altura da linha (espaçamento entre linhas) */
-}
-
-/* ============================================ */
-/* ===== 10. CERTIFICADOS GRID ================ */
-/* ============================================ */
-
-/* Container dos cards de certificados */
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Cada card de certificado */
-.cert-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #e0e0e0;
-    position: relative;
-    /* Para posicionar elementos internos se necessário */
-    text-align: center;
-}
-
-/* Efeito hover nos cards de certificado */
-.cert-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-}
-
-/* Ícone do certificado (emoji/imagem) */
-.cert-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-/* Título do certificado */
-.cert-card h3 {
-    color: #667eea;
-    margin-bottom: 5px;
-}
-
-/* Instituição/ano do certificado */
-.cert-institution {
-    color: #888;
-    /* Cinza médio */
-    font-size: 0.9em;
-    /* Fonte 10% menor */
-    margin-bottom: 15px;
-}
-
-/* Descrição do certificado */
-.cert-desc {
-    color: #666;
-    margin: 15px 0;
-    line-height: 1.6;
-}
-
-/* ----- 10.1 BADGES DOS CERTIFICADOS ----- */
-/* Estilo base dos badges (selos de status) */
-.cert-badge {
-    display: inline-block;
-    /* Permite definir largura/altura */
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-/* Badge de curso concluído (verde) */
-.cert-badge.completed {
-    background: #4CAF50;
-    /* Verde */
-    color: white;
-}
-
-/* Badge de curso em andamento (laranja) */
-.cert-badge.ongoing {
-    background: #FF9800;
-    /* Laranja */
-    color: white;
-}
-
-/* Badge de curso futuro (roxo) */
-.cert-badge.future {
-    background: #9C27B0;
-    /* Roxo */
-    color: white;
-}
-
-/* ============================================ */
-/* ===== 11. PROJETOS GRID ==================== */
-/* ============================================ */
-
-/* Container dos cards de projetos */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Cada card de projeto */
-.project-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    /* Esconde conteúdo que ultrapasse a borda */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-/* Efeito hover nos cards de projeto */
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-}
-
-/* Cabeçalho do card de projeto (área colorida com ícone) */
-.project-header {
-    padding: 30px;
-    text-align: center;
-}
-
-/* Ícone do projeto */
-.project-icon {
-    font-size: 3em;
-    background: rgba(255, 255, 255, 0.2); /* Fundo branco semi-transparente */
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* Círculo */
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 auto; /* Centraliza horizontalmente */
-    color: white;
-
-    white-space: nowrap; /* ✅ impede emojis de quebrar linha */
-}
-
-/* Corpo do card de projeto */
-.project-body {
-    padding: 25px;
-}
-
-/* Título do projeto */
-.project-body h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Descrição do projeto */
-.project-body p {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-
-/* Container das tags de tecnologia */
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-/* Tags de tecnologia individuais */
-.tech-tag {
-    background: #f0f0f0;
-    /* Cinza claro */
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    color: #666;
-}
-
-/* ============================================ */
-/* ===== 12. SKILLS COM EFEITO HOVER ========== */
-/* ============================================ */
-
-/* Container das tags de habilidade */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-/* Tags de habilidade individuais */
-.skill-tag {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-size: 0.9em;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: default;
-    /* Cursor padrão (não indica clique) */
-    display: inline-block;
-}
-
-/* ----- 12.1 HOVER DOS SKILLS ----- */
-/* Efeito ao passar o mouse nas tags de habilidade */
-.skill-tag:hover {
-    transform: translateY(-3px) scale(1.05);
-    /* Sobe 3px e aumenta 5% */
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    /* Sombra roxa */
-    background: linear-gradient(135deg, #764ba2, #667eea);
-    /* Gradiente invertido */
-}
-
-/* ============================================ */
-/* ===== 13. INTERESSES ======================= */
-/* ============================================ */
-
-/* Container dos itens de interesse */
-.interests-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
-
-/* Itens de interesse individuais */
-.interest-item {
-    background: #f0f0f0;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    cursor: default;
-}
-
-/* Efeito hover nos itens de interesse */
-.interest-item:hover {
-    background: #667eea;
-    /* Fundo azul */
-    color: white;
-    /* Texto branco */
-    transform: translateY(-3px);
-    /* Sobe 3px */
-}
-
-/* ============================================ */
-/* ===== 14. QUOTE BOX ======================== */
-/* ============================================ */
-
-/* Caixa de citação/frase */
-.quote-box {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 40px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 30px;
-    text-align: center;
-    font-size: 1.3em;
-    font-style: italic;
-    /* Texto em itálico */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================================ */
-/* ===== 15. PROFILE HEADER (SOBRE MIM) ======= */
-/* ============================================ */
-
-/* Cabeçalho do perfil na página sobre mim */
-.profile-header {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    margin-bottom: 40px;
-}
-
-/* ----- 15.1 AVATAR DO PERFIL ----- */
-/* Container do avatar/foto de perfil */
-.profile-avatar {
-    font-size: 6em;
-    /* Tamanho do emoji (se não tiver imagem) */
-    background: rgba(255, 255, 255, 0.2);
-    /* Fundo branco semi-transparente */
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    border: 4px solid white;
-}
-
-/* Idade/localização no perfil */
-.profile-age {
-    font-size: 1.3em;
-    opacity: 0.9;
-    /* 90% de opacidade (levemente transparente) */
-    margin-top: 10px;
-}
-
-/* ============================================ */
-/* ===== 16. BOTÕES =========================== */
-/* ============================================ */
-
-/* Estilo base para botões */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    text-decoration: none;
-    /* Remove sublinhado */
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    /* Remove borda padrão */
-    cursor: pointer;
-}
-
-/* Efeito hover nos botões */
-.btn:hover {
-    transform: translateY(-2px);
-    /* Sobe 2px */
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    /* Sombra roxa */
-}
-
-/* ============================================ */
-/* ===== 17. FOOTER =========================== */
-/* ============================================ */
-
-/* Rodapé da página */
-footer {
-    background: #333;
-    /* Cinza escuro */
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: auto;
-    /* Empurra o footer para baixo (com flexbox) */
-}
-
-/* ============================================ */
-/* ===== 18. RESPONSIVIDADE (CELULAR) ========= */
-/* ============================================ */
-
-/* Media query para telas de até 768px (celulares/tablets) */
-@media (max-width: 768px) {
-
-    /* Menu vira coluna */
-    .nav-menu {
-        flex-direction: column;
-        /* Itens em coluna */
-        gap: 15px;
-        /* Espaçamento menor */
-        padding: 15px;
-    }
-
-    /* Links ocupam 80% da largura */
-    .nav-menu a {
-        width: 80%;
-        /* 80% da largura do container */
-        text-align: center;
-    }
-
-    /* Botão de tema sem margem lateral */
-    .theme-btn {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    /* Títulos menores */
-    .hero h1 {
-        font-size: 2.2em;
-    }
-
-    .page-header h1 {
-        font-size: 2em;
-    }
-
-    /* Stats em coluna */
-    .stats-container {
-        flex-direction: column;
-        /* Itens em coluna */
-        align-items: center;
-    }
-
-    /* Cards ocupam 80% da largura */
-    .stat-card {
-        width: 80%;
-    }
-}
-
-/* ============================================ */
-/* ===== 19. PROFILE AVATAR COM IMAGEM ======== */
-/* ============================================ */
-
-/* SOBRESCREVE a regra anterior do profile-avatar para usar com imagem */
-.profile-avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    /* Esconde partes da imagem que saiam do círculo */
-    margin: 0 auto 20px;
-    border: 4px solid white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo específico para a imagem dentro do avatar */
-#profile-image {
-    width: 100%;
-    /* Ocupa 100% da largura do container */
-    height: 100%;
-    /* Ocupa 100% da altura do container */
-    object-fit: cover;
-    /* Ajusta a imagem para preencher sem distorcer */
-    display: block;
-    /* Remove espaços extras */
-}
-
-/* ----- 19.1 HOVER DA IMAGEM ----- */
-/* Efeito ao passar o mouse sobre o avatar */
-.profile-avatar:hover {
-    transform: scale(1.05);
-    /* Aumenta 5% */
-    transition: transform 0.3s ease;
-    /* Animação suave */
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-    /* Sombra branca */
-}
-
-/* ----- 19.2 DARK MODE DA IMAGEM ----- */
-/* Avatar no dark mode */
-body.dark-mode .profile-avatar {
-    border-color: #666;
-    /* Borda cinza em vez de branca */
-}
-
-/* Style pra deixar a parte de cima da página fixa enquanto rolamos para baixo */
 
 .nav-menu {
     position: fixed;
@@ -952,215 +140,950 @@ body.dark-mode .profile-avatar {
     left: 0;
     width: 100%;
     z-index: 9999;
-    /* Fica na frente de tudo */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* o resto do seu código... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
+.nav-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-menu {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-menu a:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+    color: #667eea;
+}
+
+.nav-menu a.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.theme-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(102, 126, 234, 0.1);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    color: #667eea;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#link:hover {
+    text-decoration: underline;
+    color: #764ba2;
+}
+
+body.dark-mode #link {
+    color: #9f9fff;
+}
 
 /* ============================================ */
-/*
-// ============================================
-// PROPRIEDADES DE POSICIONAMENTO E DISPLAY
-// ============================================
+/* ===== 4. HERO (PÁGINA INICIAL) ============= */
+/* ============================================ */
 
-// display: flex // Ativa o modo flexbox, permitindo alinhamento flexível
-// display: grid // Ativa o modo grid, permitindo layout em grade
-// display: block // Faz o elemento ocupar toda a largura e quebrar linha
-// display: inline-block // Permite definir largura/altura mas não quebra linha
-// display: none // Esconde completamente o elemento da página
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-// position: relative // Posiciona relativo à sua posição original
-// position: absolute // Posiciona relativo ao ancestral mais próximo com position
-// position: fixed // Fixa o elemento na tela (não rola com a página)
-// top: 20px // Distância do topo
-// bottom: 0 // Distância da parte inferior
-// left: 50% // Distância da esquerda
-// right: 0 // Distância da direita
-// z-index: 1000 // Controla a sobreposição (maior valor fica na frente)
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    word-break: break-word;
+}
 
-// float: left // Faz elemento flutuar à esquerda (texto contorna)
-// float: right // Faz elemento flutuar à direita
-// clear: both // Limpa floats, impedindo elementos de flutuar ao lado
+.hero p {
+    font-size: 0.95rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
 
-// ============================================
-// PROPRIEDADES DE FLEXBOX
-// ============================================
+/* ============================================ */
+/* ===== 5. PAGE HEADER ======================= */
+/* ============================================ */
 
-// flex-direction: row // Organiza itens em linha (horizontal)
-// flex-direction: column // Organiza itens em coluna (vertical)
-// justify-content: center // Centraliza horizontalmente
-// justify-content: space-between // Espaço igual entre itens, grudados nas bordas
-// justify-content: space-around // Espaço igual ao redor dos itens
-// align-items: center // Centraliza verticalmente
-// align-items: flex-start // Alinha ao topo
-// align-items: flex-end // Alinha à base
-// flex-wrap: wrap // Permite quebrar linha em telas pequenas
-// gap: 30px // Espaçamento entre os itens
-// flex: 1 // Faz o item crescer para ocupar espaço disponível
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-// ============================================
-// PROPRIEDADES DE GRID
-// ============================================
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    word-break: break-word;
+    text-align: center;
+}
 
-// grid-template-columns: repeat(3, 1fr) // Cria 3 colunas de tamanhos iguais
-// grid-template-columns: 200px 1fr 2fr // Colunas de 200px, 1 parte e 2 partes
-// gap: 20px // Espaçamento entre linhas e colunas
-// grid-column: span 2 // Ocupa 2 colunas
+.page-header p {
+    font-size: 1rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-// ============================================
-// PROPRIEDADES DE ESPAÇAMENTO
-// ============================================
+/* ============================================ */
+/* ===== 6. SEÇÃO GENÉRICA ==================== */
+/* ============================================ */
 
-// margin: 20px // Espaço EXTERNO em todos os lados
-// margin: 10px 20px // 10px em cima/baixo, 20px esquerda/direita
-// margin-top: 20px // Espaço externo APENAS em cima
-// margin-bottom: 40px // Espaço externo APENAS embaixo
-// margin-left: auto // Empurra elemento para a direita (centraliza)
-// margin: 0 auto // Centraliza horizontalmente
+.section {
+    max-width: 800px;
+    margin: 30px 20px;
+    padding: 25px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
 
-// padding: 20px // Espaço INTERNO em todos os lados
-// padding: 10px 20px // 10px em cima/baixo, 20px esquerda/direita
-// padding-left: 15px // Espaço interno APENAS à esquerda
+.section h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-left: 4px solid #764ba2;
+    padding-left: 15px;
+    word-break: break-word;
+}
 
-// ============================================
-// PROPRIEDADES DE TAMANHO
-// ============================================
+.section p {
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
 
-// width: 100% // Largura de 100% do elemento pai
-// width: 500px // Largura fixa de 500 pixels
-// max-width: 800px // Largura máxima de 800px (pode ser menor)
-// min-width: 150px // Largura mínima de 150px (não fica menor que isso)
-// height: 100% // Altura de 100% do elemento pai
-// height: 50px // Altura fixa de 50 pixels
-// min-height: 100vh // Altura mínima de 100% da tela
-// max-height: 400px // Altura máxima de 400px
+/* ============================================ */
+/* ===== 7. STATS CARDS ======================= */
+/* ============================================ */
 
-// ============================================
-// PROPRIEDADES DE COR E FUNDO
-// ============================================
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 20px;
+}
 
-// color: red // Cor do texto (vermelho)
-// color: #333333 // Cor do texto em hexadecimal (cinza escuro)
-// color: rgb(255, 0, 0) // Cor do texto em RGB (vermelho)
-// background-color: blue // Cor de fundo azul
-// background: linear-gradient(135deg, red, blue) // Gradiente diagonal de vermelho para azul
-// background-image: url('imagem.jpg') // Imagem de fundo
-// background-size: cover // Imagem cobre todo o fundo (pode cortar)
-// background-size: contain // Imagem inteira dentro do fundo (pode sobrar espaço)
-// opacity: 0.5 // Transparência de 50%
+.stat-card {
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+    max-width: 130px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-// ============================================
-// PROPRIEDADES DE TEXTO
-// ============================================
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
 
-// font-size: 16px // Tamanho da fonte
-// font-size: 2em // 2x o tamanho da fonte do elemento pai
-// font-weight: bold // Texto em negrito
-// font-weight: 600 // Peso da fonte (400=normal, 700=negrito)
-// font-style: italic // Texto em itálico
-// text-align: center // Texto centralizado
-// text-align: left // Texto à esquerda
-// text-align: right // Texto à direita
-// text-decoration: none // Remove sublinhado de links
-// text-decoration: underline // Adiciona sublinhado
-// text-transform: uppercase // Tudo em maiúsculas
-// text-transform: lowercase // Tudo em minúsculas
-// line-height: 1.6 // Espaçamento entre linhas
-// letter-spacing: 2px // Espaçamento entre letras
-// text-shadow: 2px 2px 4px black // Sombra no texto (horizontal, vertical, borrão, cor)
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
 
-// ============================================
-// PROPRIEDADES DE BORDA
-// ============================================
+.stat-card div:last-child {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: #666;
+}
 
-// border: 2px solid black // Borda de 2px, sólida, preta
-// border: none // Remove borda
-// border-top: 1px dashed red // Borda superior vermelha tracejada
-// border-radius: 10px // Bordas arredondadas em 10px
-// border-radius: 50% // Borda 50% arredondada = círculo
-// border-left: 5px solid blue // Borda esquerda azul de 5px
+body.dark-mode .stat-card div:last-child {
+    color: #b0b0b0;
+}
 
-// ============================================
-// PROPRIEDADES DE SOMBRA
-// ============================================
+/* ============================================ */
+/* ===== 8. CARDS CONTAINER =================== */
+/* ============================================ */
 
-// box-shadow: 0 5px 15px rgba(0,0,0,0.2) // Sombra (x, y, borrão, cor)
-// box-shadow: 0 0 15px white // Brilho branco ao redor
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px 20px;
+    padding: 0;
+}
 
-// ============================================
-// PROPRIEDADES DE TRANSIÇÃO E ANIMAÇÃO
-// ============================================
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
 
-// transition: all 0.3s ease // Anima TODAS as mudanças em 0.3s suavemente
-// transition: background-color 0.5s // Anima APENAS mudanças de cor de fundo
-// transform: scale(1.1) // Aumenta elemento em 10%
-// transform: rotate(15deg) // Gira elemento 15 graus
-// transform: translateY(-10px) // Move 10px para cima
-// transform: translateX(20px) // Move 20px para direita
-// transform: scale(1.1) rotate(15deg) // Combina efeitos
-// cursor: pointer // Muda cursor para mãozinha
-// cursor: default // Cursor padrão
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
 
-// ============================================
-// PSEUDO-CLASSES (ESTADOS)
-// ============================================
+.card h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
 
-// :hover // Quando o mouse passa por cima
-// :active // Quando está sendo clicado
-// :focus // Quando está selecionado (inputs)
-// :visited // Link já visitado
-// :first-child // Primeiro filho do elemento pai
-// :last-child // Último filho
-// :nth-child(2) // Segundo filho
+.card p {
+    color: #666;
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 0.85rem;
+}
 
-// ============================================
-// PSEUDO-ELEMENTOS
-// ============================================
+/* ============================================ */
+/* ===== 9. CERTIFICADOS GRID ================= */
+/* ============================================ */
 
-// ::before // Adiciona conteúdo ANTES do elemento
-// ::after // Adiciona conteúdo DEPOIS do elemento
-// ::first-line // Primeira linha do texto
-// ::first-letter // Primeira letra
+.cert-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px 20px;
+    padding: 0;
+}
 
-// ============================================
-// PROPRIEDADES DE OVERFLOW
-// ============================================
+.cert-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
 
-// overflow: hidden // Esconde conteúdo que ultrapassa o elemento
-// overflow: scroll // Adiciona barras de rolagem
-// overflow: auto // Adiciona barras se necessário
-// overflow: visible // Mostra conteúdo mesmo se ultrapassar (padrão)
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
 
-// ============================================
-// PROPRIEDADES DE LISTA
-// ============================================
+.cert-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
 
-// list-style: none // Remove marcadores de lista
-// list-style-type: circle // Marcadores circulares
+.cert-card h3 {
+    color: #667eea;
+    margin-bottom: 5px;
+    font-size: 1.15rem;
+    word-break: break-word;
+}
 
-// ============================================
-// MEDIA QUERIES (RESPONSIVIDADE)
-// ============================================
+.cert-institution {
+    color: #888;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+}
 
-// @media (max-width: 768px) // Aplica regras em telas de até 768px
-// @media (min-width: 1024px) // Aplica regras em telas acima de 1024px
-// @media (orientation: portrait) // Aplica em modo retrato (vertical)
+.cert-desc {
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 0.8rem;
+}
 
-// ============================================
-// PROPRIEDADES DE OBJETO (IMAGENS)
-// ============================================
+.cert-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 6px;
+}
 
-// object-fit: cover // Ajusta imagem para preencher sem distorcer (corta)
-// object-fit: contain // Ajusta para caber inteira (pode sobrar espaço)
-// object-fit: fill // Estica para preencher (pode distorcer)
+.cert-badge.completed {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
 
-// ============================================
-// PROPRIEDADES DE POSICIONAMENTO AVANÇADO
-// ============================================
+.cert-badge.ongoing {
+    background: linear-gradient(135deg, #FF9800, #fb8c00);
+    color: white;
+}
 
-// vertical-align: middle // Alinhamento vertical (em tabelas/inline)
-// white-space: nowrap // Impede quebra de linha
-// word-wrap: break-word // Quebra palavras longas
-*/
+.cert-badge.future {
+    background: linear-gradient(135deg, #9C27B0, #8e24aa);
+    color: white;
+}
+
+/* ============================================ */
+/* ===== 10. PROJETOS GRID (CORRIGIDO) ======== */
+/* ============================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.project-header {
+    padding: 35px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CORREÇÃO: Emojis ficarem um do lado do outro */
+.project-icon {
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: auto;
+    min-width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+    color: white;
+    white-space: nowrap;
+    padding: 0 15px;
+}
+
+.project-body {
+    padding: 25px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-body h3 {
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    word-break: break-word;
+    text-align: center;
+}
+
+.project-body p {
+    color: #666;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: #f0f0f0;
+    padding: 5px 14px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.project-body .btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: auto;
+    align-self: center;
+    width: fit-content;
+}
+
+.project-body .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================ */
+/* ===== 11. SKILLS =========================== */
+/* ============================================ */
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-block;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================ */
+/* ===== 12. INTERESSES ======================= */
+/* ============================================ */
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.interest-item {
+    background: #f0f0f0;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.interest-item:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ============================================ */
+/* ===== 13. QUOTE BOX ======================== */
+/* ============================================ */
+
+.quote-box {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.quote-box p {
+    line-height: 1.5;
+}
+
+/* ============================================ */
+/* ===== 14. PROFILE HEADER =================== */
+/* ============================================ */
+
+.profile-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    border: 3px solid white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+#profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.profile-age {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    margin-top: 5px;
+}
+
+body.dark-mode .profile-avatar {
+    border-color: #666;
+}
+
+/* ============================================ */
+/* ===== 15. BOTÕES =========================== */
+/* ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: 8px 24px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================ */
+/* ===== 16. FOOTER =========================== */
+/* ============================================ */
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+/* ============================================ */
+/* ===== 17. RESPONSIVIDADE TABLET ============ */
+/* ============================================ */
+
+@media (min-width: 769px) {
+    body {
+        padding-top: 65px;
+    }
+    
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .stats-container {
+        gap: 20px;
+    }
+    
+    .stat-card {
+        min-width: 120px;
+        max-width: 160px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        margin: 40px auto;
+        padding: 30px;
+    }
+    
+    .hero {
+        padding: 70px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    
+    .nav-menu {
+        gap: 10px;
+        padding: 12px 24px;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    
+    .theme-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+    }
+    
+    .page-header {
+        padding: 60px 20px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .project-icon {
+        font-size: 2.8rem;
+        min-width: 90px;
+        height: 90px;
+    }
+}
+
+/* ============================================ */
+/* ===== 18. RESPONSIVIDADE DESKTOP =========== */
+/* ============================================ */
+
+@media (min-width: 1025px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 50px auto;
+    }
+    
+    .cert-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 50px auto;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+        padding: 14px 40px;
+    }
+    
+    .nav-menu a {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-header p {
+        font-size: 1.1rem;
+    }
+    
+    .project-icon {
+        font-size: 3rem;
+        min-width: 100px;
+        height: 100px;
+    }
+}
+
+/* ============================================ */
+/* ===== 19. RESPONSIVIDADE CELULAR =========== */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    .projects-grid {
+        gap: 25px;
+        margin: 30px 16px;
+        padding: 0;
+    }
+    
+    .project-header {
+        padding: 30px;
+    }
+    
+    .project-icon {
+        font-size: 2rem;
+        min-width: 70px;
+        height: 70px;
+        padding: 0 12px;
+        gap: 6px;
+    }
+    
+    .project-body {
+        padding: 20px;
+    }
+    
+    .project-body h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-body p {
+        font-size: 0.85rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+    
+    .project-body .btn {
+        padding: 8px 24px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================ */
+/* ===== 20. RESPONSIVIDADE CELULAR PEQUENO === */
+/* ============================================ */
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 55px;
+    }
+    
+    .nav-menu {
+        padding: 8px 10px;
+        gap: 4px;
+    }
+    
+    .nav-menu a {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+    
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+    
+    .hero p {
+        font-size: 0.8rem;
+    }
+    
+    .page-header {
+        padding: 35px 16px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .page-header p {
+        font-size: 0.85rem;
+    }
+    
+    .stat-card {
+        min-width: 85px;
+        padding: 12px 8px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card div:last-child {
+        font-size: 0.65rem;
+    }
+    
+    .card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .card p {
+        font-size: 0.8rem;
+    }
+    
+    .project-header {
+        padding: 25px;
+    }
+    
+    .project-icon {
+        font-size: 1.6rem;
+        min-width: 60px;
+        height: 60px;
+        padding: 0 10px;
+        gap: 4px;
+    }
+    
+    .project-body {
+        padding: 18px;
+    }
+    
+    .project-body h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-body p {
+        font-size: 0.8rem;
+    }
+    
+    .project-tech {
+        gap: 8px;
+    }
+    
+    .tech-tag {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    
+    .project-body .btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .profile-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .quote-box {
+        margin: 25px 16px;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================ */
+/* ===== 21. TOUCH OPTIMIZATIONS ============== */
+/* ============================================ */
+
+@media (hover: hover) {
+    .card:hover,
+    .cert-card:hover,
+    .project-card:hover,
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (hover: none) {
+    .card:active,
+    .cert-card:active,
+    .project-card:active,
+    .stat-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .btn:active,
+    .theme-btn:active {
+        transform: scale(0.96);
+    }
+}
