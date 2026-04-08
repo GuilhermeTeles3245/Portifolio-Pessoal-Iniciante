@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Horários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <h1 id="titulo">Calculadora de Horários</h1>
+        <h3 id="descricao">
+            Este site foi feito inteiramente para converter valores de horário, principalmente quando iniciei meus estudos
+            com base em playlists. Às vezes eu tenho ideias malucas de metas, como por exemplo: de vez em quando maratonar
+            1000 minutos (60.000 segundos) de vídeo. Por isso, criei esta "calculadora", onde posso colocar 20:56
+            (20 minutos e 56 segundos) e converter para segundos.
+        </h3>
+    </header>
+    
+    <main class="main">
+        <div class="entradas">
+            <div class="entrada">
+                <input class="tempo" id="ano" type="number" placeholder="Ano">
+                <input class="tempo" id="mes" type="number" placeholder="Mês">
+                <input class="tempo" id="dia" type="number" placeholder="Dia">
+            </div>
+
+            <div class="entrada">
+                <input class="tempo" id="hora" type="number" placeholder="Hora">
+                <input class="tempo" id="minuto" type="number" placeholder="Minuto">
+                <input class="tempo" id="segundo" type="number" placeholder="Segundo">
+            </div>
+        </div>
+
+        <button id="trocar" class="btn-calcular">Trocar</button>
+
+        <select id="escolha">
+            <option value="Ano">Ano</option>
+            <option value="Mês">Mês</option>
+            <option value="Dia">Dia</option>
+            <option value="Hora">Hora</option>
+            <option value="Minuto">Minuto</option>
+            <option value="Segundo">Segundo</option>
+        </select>
+
+        <div class="input-saida">
+            <input id="saida" type="text" placeholder="Saída" readonly>
+        </div>
+
+        <a href="../../pages/projetos.html">Voltar pro Portfólio</a>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

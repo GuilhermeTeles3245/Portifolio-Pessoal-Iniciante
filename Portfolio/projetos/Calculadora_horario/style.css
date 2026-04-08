@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+html, body {
+    overflow-x: hidden; /* só remove scroll horizontal */
+}
+
+/* Containers principais */
+#header,
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER */
+
+#header {
+    min-height: 20vh;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+#titulo {
+    margin: 0;
+    text-align: center;
+}
+
+#descricao{
+    border: 1px solid #ffffff;
+    max-width: 600px;
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* MAIN */
+
+.main {
+    min-height: 80vh;
+    justify-content: flex-start;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* ENTRADAS */
+
+.entradas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.entrada {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tempo {
+    width: 110px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+/* SELECT */
+
+#escolha {
+    min-width: 140px;
+    padding: 6px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+/* SAÍDA */
+
+.input-saida {
+    display: flex;
+    margin-top: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+}
+
+#saida {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    width: 220px;
+}
+
+/* BOTÃO */
+
+button {
+    display: flex;
+    justify-content: center;
+    background-color: #ff1a1a;
+    width: 140px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* PLACEHOLDER */
+
+input::placeholder {
+    color: gray;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+a:hover{
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width:600px){
+
+    #descricao{
+        width: 95%;
+        font-size: 14px;
+    }
+
+    .tempo{
+        width: 90px;
+    }
+
+}
