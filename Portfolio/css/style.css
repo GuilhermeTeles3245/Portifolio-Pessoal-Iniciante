@@ -14,9 +14,45 @@ html {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
 body {
-    background-color: #f5f5f5;
-    color: #333333;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     transition: background-color 0.3s ease, color 0.3s ease;
     min-height: 100vh;
     display: flex;
@@ -145,7 +181,7 @@ body.dark-mode .theme-btn:hover {
     align-items: center;
     gap: 6px;
     padding: 10px 12px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -166,7 +202,7 @@ body.dark-mode .theme-btn:hover {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-main);
     font-size: 0.8rem;
     font-weight: 500;
     padding: 6px 12px;
@@ -177,7 +213,7 @@ body.dark-mode .theme-btn:hover {
 }
 
 .nav-menu a:hover {
-    background: rgba(102, 126, 234, 0.1);
+    background: var(--nav-hover);
     transform: translateY(-2px);
     color: #667eea;
 }
@@ -192,7 +228,7 @@ body.dark-mode .theme-btn:hover {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: rgba(102, 126, 234, 0.1);
+    background: var(--nav-hover);
     border: 2px solid rgba(102, 126, 234, 0.3);
     color: #667eea;
     font-size: 18px;
@@ -280,9 +316,9 @@ body.dark-mode #link {
     max-width: 800px;
     margin: 30px 20px;
     padding: 25px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px var(--shadow-color);
     transition: all 0.3s ease;
 }
 
@@ -313,16 +349,16 @@ body.dark-mode #link {
 }
 
 .stat-card {
-    background: white;
+    background: var(--card-bg);
     padding: 15px;
     border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px var(--shadow-color);
     text-align: center;
     flex: 1;
     min-width: 100px;
     max-width: 130px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
 .stat-card:hover {
@@ -343,7 +379,7 @@ body.dark-mode #link {
 .stat-card div:last-child {
     font-size: 0.75rem;
     line-height: 1.3;
-    color: #666;
+    color: var(--text-muted);
 }
 
 body.dark-mode .stat-card div:last-child {
@@ -364,12 +400,12 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px var(--shadow-color);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     text-align: center;
 }
 
@@ -385,7 +421,7 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .card p {
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 18px;
     line-height: 1.5;
     font-size: 0.85rem;
@@ -405,12 +441,12 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .cert-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px var(--shadow-color);
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     text-align: center;
 }
 
@@ -432,13 +468,13 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .cert-institution {
-    color: #888;
+    color: var(--text-light);
     font-size: 0.75rem;
     margin-bottom: 10px;
 }
 
 .cert-desc {
-    color: #666;
+    color: var(--text-muted);
     margin: 10px 0;
     line-height: 1.5;
     font-size: 0.8rem;
@@ -482,10 +518,10 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .project-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px var(--shadow-color);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -523,7 +559,43 @@ body.dark-mode .stat-card div:last-child {
     padding: 0 15px;
 }
 
-.project-body {
+.project-/* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
+body {
     padding: 25px;
     text-align: center;
     flex: 1;
@@ -532,7 +604,7 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .project-body h3 {
-    color: #333;
+    color: var(--text-main);
     margin-bottom: 12px;
     font-size: 1.3rem;
     word-break: break-word;
@@ -540,7 +612,7 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .project-body p {
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 18px;
     line-height: 1.6;
     font-size: 0.9rem;
@@ -556,11 +628,11 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .tech-tag {
-    background: #f0f0f0;
+    background: var(--interest-bg);
     padding: 5px 14px;
     border-radius: 25px;
     font-size: 0.8rem;
-    color: #666;
+    color: var(--text-muted);
     font-weight: 500;
     display: inline-block;
 }
@@ -627,7 +699,7 @@ body.dark-mode .stat-card div:last-child {
 }
 
 .interest-item {
-    background: #f0f0f0;
+    background: var(--interest-bg);
     padding: 6px 18px;
     border-radius: 30px;
     font-size: 0.85rem;
@@ -711,7 +783,7 @@ body.dark-mode .stat-card div:last-child {
 }
 
 body.dark-mode .profile-avatar {
-    border-color: #666;
+    border-color: var(--text-muted);
 }
 
 /* ============================================ */
@@ -746,7 +818,7 @@ body.dark-mode .profile-avatar {
 /* ============================================ */
 
 footer {
-    background: #222;
+    background: var(--footer-bg);
     color: white;
     text-align: center;
     padding: 20px;
@@ -763,7 +835,43 @@ footer p {
 /* ============================================ */
 
 @media (min-width: 769px) {
-    body {
+    /* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
+body {
         padding-top: 65px;
     }
     
@@ -917,7 +1025,43 @@ footer p {
         gap: 6px;
     }
     
-    .project-body {
+    .project-/* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
+body {
         padding: 20px;
     }
     
@@ -945,7 +1089,43 @@ footer p {
 /* ============================================ */
 
 @media (max-width: 480px) {
-    body {
+    /* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
+body {
         padding-top: 55px;
     }
     
@@ -1018,7 +1198,43 @@ footer p {
         gap: 4px;
     }
     
-    .project-body {
+    .project-/* ============================================ */
+/* ===== VARIÁVEIS DE CORES (THEME) =========== */
+/* ============================================ */
+
+:root {
+    --bg-main: #f5f5f5;
+    --text-main: #333333;
+    --card-bg: white;
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text-muted: #666;
+    --text-light: #888;
+    --interest-bg: #f0f0f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-hover: rgba(102, 126, 234, 0.1);
+    --nav-border: transparent;
+    --border-color: rgba(0, 0, 0, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --footer-bg: #222;
+}
+
+body.dark-mode {
+    --bg-main: #1a1a1a;
+    --text-main: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --text-muted: #b0b0b0;
+    --text-light: #b0b0b0;
+    --interest-bg: #404040;
+    --nav-bg: #1a1a1a;
+    --nav-hover: rgba(255, 255, 255, 0.1);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --footer-bg: #000;
+}
+
+body {
         padding: 18px;
     }
     
