@@ -1,0 +1,165 @@
+/* ============================================ */
+/* ===== VARIÁVEIS E RESET ==================== */
+/* ============================================ */
+:root {
+    /* Cores dos modos que você pode alterar com JavaScript depois */
+    --bg-color: #f87070; /* Cor padrão: Vermelho do Foco */
+    --card-bg: rgba(255, 255, 255, 0.15); /* Fundo de vidro */
+    --text-color: #ffffff;
+    
+    /* Fontes modernas */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.5s ease; /* Transição suave de cor */
+    position: relative;
+}
+
+/* ============================================ */
+/* ===== BOTÃO VOLTAR ========================= */
+/* ============================================ */
+.back-btn {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateX(-5px);
+}
+
+/* ============================================ */
+/* ===== CONTAINER PRINCIPAL (GLASSMORPHISM) == */
+/* ============================================ */
+.pomodoro-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px); /* Efeito de vidro borrado */
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================ */
+/* ===== ABAS DE MODOS ======================== */
+/* ============================================ */
+.modes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.mode-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.mode-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mode-btn.active {
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================ */
+/* ===== VISOR DO RELÓGIO ===================== */
+/* ============================================ */
+.timer-display {
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================ */
+/* ===== BOTÕES DE CONTROLE =================== */
+/* ============================================ */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.control-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.control-btn.primary {
+    background: white;
+    color: var(--bg-color); /* A cor da letra será a mesma do fundo do site */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.control-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.control-btn.secondary, .control-btn.reset {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.control-btn.secondary:hover, .control-btn.reset:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* ============================================ */
+/* ===== STATUS MSG =========================== */
+/* ============================================ */
+.status-msg {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}

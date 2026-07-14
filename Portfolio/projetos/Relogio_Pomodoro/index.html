@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Botão para voltar ao portfólio -->
+    <a href="../../index.html" class="back-btn">← Voltar ao Portfólio</a>
+
+    <div class="pomodoro-container">
+        <!-- Modos do Pomodoro -->
+        <div class="modes">
+            <button class="mode-btn active" id="mode-focus">Foco</button>
+            <button class="mode-btn" id="mode-short">Pausa Curta</button>
+            <button class="mode-btn" id="mode-long">Pausa Longa</button>
+        </div>
+
+        <!-- Visor do Relógio -->
+        <div class="timer-display">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls">
+            <button class="control-btn primary" id="btn-start">Iniciar</button>
+            <button class="control-btn secondary" id="btn-pause">Pausar</button>
+            <button class="control-btn reset" id="btn-reset">Zerar</button>
+        </div>
+
+        <!-- Mensagem de status -->
+        <p class="status-msg" id="status">Hora de focar! 🍅</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
