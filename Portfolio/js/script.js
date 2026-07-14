@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. Destacar link ativo no menu
     highlightActiveLink();
     
-    // 3. Atualizar/Contar certificados
+    // 3. Atualizar/Contar certificados e inicializar filtros
     if (document.querySelector(".cert-grid")) {
-        // Se estiver na página de conteúdos, conta os itens e salva
+        // Se estiver na página de conteúdos, conta os itens, ordena e ativa filtros
         countAndSaveCerts();
         sortCertCards();
+        initFilters(); // Inicializa os botões de filtro por instituição
     } else {
         // Se estiver na home, tenta buscar e atualizar os stats
         updateStats();
@@ -141,4 +142,46 @@ function sortCertCards() {
     certGrid.innerHTML = "";
     certCards.forEach(card => certGrid.appendChild(card));
     console.log("Cards ordenados alfabeticamente");
+}
+
+// ============================================
+// ===== FILTRO POR INSTITUIÇÃO ===============
+// Lê o atributo data-filtro de cada botão e
+// compara com o atributo data-origem de cada
+// cert-card. Exibe apenas os que combinam,
+// ou todos se o filtro for "todos".
+// ============================================
+
+function initFilters() {
+    // Seleciona todos os botões de filtro da barra
+    const botoes = document.querySelectorAll(".filter-btn");
+
+    botoes.forEach(botao => {
+        botao.addEventListener("click", function () {
+            // Remove a classe 'active' de todos os botões
+            botoes.forEach(b => b.classList.remove("active"));
+
+            // Marca o botão clicado como ativo
+            this.classList.add("active");
+
+            // Lê qual filtro foi selecionado (ex: "cfbcursos", "codedex", "todos")
+            const filtroSelecionado = this.getAttribute("data-filtro");
+
+            // Percorre todos os cards e decide quais mostrar ou ocultar
+            const cards = document.querySelectorAll(".cert-card");
+            cards.forEach(card => {
+                const origemDoCard = card.getAttribute("data-origem");
+
+                if (filtroSelecionado === "todos" || origemDoCard === filtroSelecionado) {
+                    // Mostra o card: remove a classe que o esconde
+                    card.classList.remove("hidden");
+                } else {
+                    // Esconde o card: adiciona a classe .hidden (display: none no CSS)
+                    card.classList.add("hidden");
+                }
+            });
+
+            console.log("Filtro aplicado:", filtroSelecionado);
+        });
+    });
 }

@@ -505,6 +505,72 @@ body.dark-mode .stat-card div:last-child {
 }
 
 /* ============================================ */
+/* ===== BARRA DE FILTROS (CONTEÚDOS) ========= */
+/* Exibida na página de certificados.           */
+/* Permite ao usuário filtrar os cards por      */
+/* instituição (CFBCursos, Codedex, etc.)       */
+/* ============================================ */
+
+.filter-bar {
+    /* Centraliza os botões horizontalmente */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 20px 10px;
+    padding: 16px 20px;
+}
+
+.filter-btn {
+    /* Aparência base do botão de filtro */
+    padding: 7px 18px;
+    border-radius: 25px;
+    border: 2px solid #667eea;
+    background: transparent;
+    color: #667eea;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    /* Efeito ao passar o mouse — fundo roxo suave */
+    background: rgba(102, 126, 234, 0.12);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    /* Estado selecionado — fundo gradiente igual ao tema do site */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+}
+
+/* Dark mode para os botões de filtro */
+body.dark-mode .filter-btn {
+    color: #9f9fff;
+    border-color: #9f9fff;
+}
+
+body.dark-mode .filter-btn:hover {
+    background: rgba(159, 159, 255, 0.12);
+}
+
+body.dark-mode .filter-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: transparent;
+}
+
+/* Card oculto pelo filtro — display none com transição suave via opacity */
+.cert-card.hidden {
+    display: none;
+}
+
+/* ============================================ */
 /* ===== 10. PROJETOS GRID (CORRIGIDO) ======== */
 /* ============================================ */
 
