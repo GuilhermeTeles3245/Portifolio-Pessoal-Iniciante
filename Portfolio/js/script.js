@@ -90,6 +90,17 @@ function countAndSaveCerts() {
 async function updateStats() {
     const statAndamento = document.getElementById('em_andamento');
     const statFinalizado = document.getElementById('finalizados');
+    const statMeses = document.getElementById('meses_estudo');
+    
+    // ---- Cálculo automático de meses de estudo ----
+    if (statMeses) {
+        const inicio = new Date(2026, 2, 10); // 10 de março de 2026 (mês começa em 0)
+        const agora = new Date();
+        const meses = (agora.getFullYear() - inicio.getFullYear()) * 12
+                    + (agora.getMonth() - inicio.getMonth());
+        statMeses.textContent = meses > 0 ? meses : 1;
+    }
+    // -----------------------------------------------
     
     if (!statAndamento || !statFinalizado) return;
 
