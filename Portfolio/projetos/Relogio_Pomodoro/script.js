@@ -1,41 +1,126 @@
-// ==========================================
-// DICAS PARA VOCÊ CONSTRUIR SEU SCRIPT
-// ==========================================
-
-// 1. Você vai precisar selecionar os elementos HTML:
-//    - Os números do relógio (minutos e segundos)
-//    - Os botões de Iniciar, Pausar e Zerar
-//    - Os botões dos Modos (Foco, Pausa Curta, Pausa Longa)
-
-const minutos = document.getElementById('minutes')
-const segundos = document.getElementById('seconds')
-const btn_iniciar = document.getElementById('btn-start')
-const btn_pausar = document.getElementById('btn-pause')
-const btn_zerar = document.getElementById('btn-reset')
-const btn_foco = document.getElementById('mode-focus')
-const btn_pausaCurta = document.getElementById('mode-short')
-const btn_pausaLonga = document.getElementById('mode-long')
+const elModeFocus = document.getElementById("mode-focus")
+const elModeShort = document.getElementById("mode-short")
+const elModeLong = document.getElementById("mode-long")
+const elMinutes = document.getElementById("minutes")
+const elSeconds = document.getElementById("seconds")
+const elBtnStart = document.getElementById("btn-start")
+const elBtnPause = document.getElementById("btn-pause")
+const elBtnReset = document.getElementById("btn-reset")
+const elStatus = document.getElementById("status")
+let tempoRestante = 25 * 60;
+let timerInterval = null; 
+let timer = {foco: 25 * 60, pausaCurta: 5 * 60, pausaLonga: 15 * 60,}
+let ativado = false;
+const audioFoco = new Audio("./cano-de-metal-caindo.mp3");
+const audioPausa = new Audio("./toby fox - UNDERTALE Soundtrack - 80 Finale.flac");
 
 
-// 2. Variáveis importantes que você vai precisar criar:
-//    let timer; // Para guardar a função setInterval()
-//    let timeLeft = 25 * 60; // 25 minutos em segundos (1500 segundos)
-//    let isRunning = false; // Para saber se o relógio está rodando ou pausado
 
-// 3. Função de atualizar o relógio na tela:
-//    Você precisará transformar os segundos totais (ex: 1500) no formato MM:SS.
-//    Dica de matemática: 
-//    minutos = Math.floor(timeLeft / 60)
-//    segundos = timeLeft % 60
-//    Dica extra: use .toString().padStart(2, '0') para garantir que sempre tenha 2 casas (ex: "05" em vez de "5")
+elModeFocus.addEventListener("click",() => {
+    ativarModes(elModeFocus)
+    pausarTimer()
+    tempoRestante = timer["foco"]
+    adicionarTempo(tempoRestante)
+})
 
-// 4. Função Iniciar:
-//    Vai usar o setInterval(função, 1000). A cada 1000ms (1 segundo), ela diminui 1 do timeLeft e atualiza a tela.
-//    Se o timeLeft chegar a 0, você toca um som (opcional) e para o relógio com clearInterval(timer).
+elModeShort.addEventListener("click",() => {
+    ativarModes(elModeShort)
+    pausarTimer()
+    tempoRestante = timer["pausaCurta"]
+    adicionarTempo(tempoRestante)
+})
 
-// 5. Troca de Modos (Botões do topo):
-//    Quando o usuário clicar em "Pausa Curta", você pode mudar o fundo do site!
-//    Exemplo: document.body.style.setProperty('--bg-color', '#4ca6a8');
-//    E você altera o timeLeft para 5 * 60.
+elModeLong.addEventListener("click",() => {
+    ativarModes(elModeLong)
+    pausarTimer()
+    tempoRestante = timer["pausaLonga"]
+    adicionarTempo(tempoRestante)
+})
 
-// Boa sorte na criação da lógica! A tela já está linda esperando o código rodar! 🚀
+elBtnStart.addEventListener("click", () => {
+    ativarBtn(elBtnStart)
+    iniciarTimer()
+})
+
+
+elBtnPause.addEventListener("click", () => {
+    ativarBtn(elBtnPause)
+    pausarTimer()
+})
+
+
+elBtnReset.addEventListener("click", () => {
+    ativarBtn(elBtnReset)
+    zerarTime()
+})
+
+function ativarModes(div){
+    document.querySelectorAll(".active").forEach((elemento)=>{
+        elemento.classList.remove("active")
+    })
+    div.classList.add("active")
+}
+
+function adicionarTempo(time){
+    const minutos = String(Math.floor(time / 60)).padStart(2, '0');
+    const segundos = String(time % 60).padStart(2, '0');
+
+    elMinutes.textContent = minutos;
+    elSeconds.textContent = segundos;
+    document.title = `🍅 ${minutos}:${segundos} - Pomodoro`;
+}
+
+function iniciarTimer(){
+    if (timerInterval !== null) return;
+    timerInterval = setInterval(() => {
+        if(tempoRestante > 0) {
+            tempoRestante = tempoRestante - 1
+            adicionarTempo(tempoRestante)
+        }
+        else {
+            pausarTimer()
+            const modoAtivo = document.querySelector(".mode-btn.active")
+            if (modoAtivo && modoAtivo.id === "mode-focus") {
+                audioFoco.currentTime = 0;
+                audioFoco.play();
+            } else {
+                audioPausa.currentTime = 0;
+                audioPausa.play();
+            }
+        }
+    },1000)
+}
+
+function zerarTime(){
+    pausarTimer()
+    audioFoco.currentTime = 0;
+    audioPausa.currentTime = 0;
+    const modoAtivo = document.querySelector(".mode-btn.active")
+    if (modoAtivo && modoAtivo.id === "mode-short") {
+        tempoRestante = timer["pausaCurta"]
+    } else if (modoAtivo && modoAtivo.id === "mode-long") {
+        tempoRestante = timer["pausaLonga"]
+    } else {
+        tempoRestante = timer["foco"]
+    }
+    adicionarTempo(tempoRestante)
+}
+
+function pausarTimer(){
+    clearInterval(timerInterval)
+    timerInterval = null
+    audioFoco.pause();
+    audioPausa.pause();
+}
+
+function ativarBtn(div){
+    document.querySelectorAll(".control-btn").forEach((elemento) => {
+        elemento.style.background = "transparent";
+        elemento.style.color = "white";
+        elemento.style.border = "2px solid white";
+    })
+    div.style.background = "white"
+    div.style.color = "var(--bg-color)"
+    div.style.boxShadow = "0 5px 15px rgba(255, 255, 255, 0.3)"
+}
+

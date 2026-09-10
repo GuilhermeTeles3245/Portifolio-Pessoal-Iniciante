@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Número Secreto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Botão de retorno ao Portfólio -->
+    <a href="../../pages/projetos.html" class="back-btn">← Voltar aos Projetos</a>
+
+    <div class="game-container">
+        <header class="game-header">
+            <span class="game-icon">🔮🎯</span>
+            <h1>Número Secreto</h1>
+            <p>Tente adivinhar o número entre <strong>1 e 100</strong>!</p>
+        </header>
+
+        <main class="game-body">
+            <!-- Campo de palpite -->
+            <div class="input-group">
+                <input type="number" id="palpite" placeholder="Digite um número..." min="1" max="100">
+                <button id="btn-chutar" class="btn-primary">Chutar 🚀</button>
+            </div>
+
+            <!-- Caixa de Dica / Feedback -->
+            <div class="feedback-box" id="feedback-box">
+                <p id="mensagem">Faça o seu primeiro palpite!</p>
+            </div>
+
+            <!-- Estatísticas da rodada -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-label">Tentativas</span>
+                    <span class="stat-value" id="tentativas">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Status</span>
+                    <span class="stat-value" id="status-jogo">Jogando</span>
+                </div>
+            </div>
+
+            <!-- Botão de Reiniciar -->
+            <button id="btn-reiniciar" class="btn-secondary" disabled>Novo Jogo 🔄</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

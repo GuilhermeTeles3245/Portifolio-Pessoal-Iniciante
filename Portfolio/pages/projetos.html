@@ -1,179 +1,271 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
     <title>Projetos - Guilherme Teles</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="nav-menu">
-        <a href="../index.html">🏠 Início</a>
-        <a href="sobre.html">👤 Sobre Mim</a>
-        <a href="conteudos.html">📜 Conteúdos</a>
-        <a href="projetos.html" class="active">💻 Projetos</a>
-        <button class="theme-btn" onclick="toggleTheme()">☀️</button>
+      <a href="../index.html">🏠 Início</a>
+      <a href="sobre.html">👤 Sobre Mim</a>
+      <a href="conteudos.html">📜 Conteúdos</a>
+      <a href="projetos.html" class="active">💻 Projetos</a>
+      <button class="theme-btn" onclick="toggleTheme()">☀️</button>
     </div>
 
     <div class="page-header">
-        <h1>💻 Meus Projetos</h1>
-        <p>Alguns trabalhos que desenvolvi durante meus estudos</p>
+      <h1>💻 Meus Projetos</h1>
+      <p>Alguns trabalhos que desenvolvi durante meus estudos</p>
     </div>
 
     <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #667eea, #764ba2);">
-                <span class="project-icon">🚀</span>
-            </div>
-            <div class="project-body">
-                <h3>Este Site (Portfólio)</h3>
-                <p>
-                    Um site totalmente focado em catalogar meus estudos, projetos e certificados.<br>
-                    Desenvolvi toda a estrutura do site e utilizei o DeepSeek como apoio na estilização com CSS.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-                <a href="#" class="btn" onclick="return false;">
-                    Ver projeto →
-                </a>
-            </div>
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #667eea, #764ba2)"
+        >
+          <span class="project-icon">🚀</span>
         </div>
-
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                <span class="project-icon">✊📄✂️</span>
-            </div>
-            <div class="project-body">
-                <h3>Pedra, Papel e Tesoura</h3>
-                <p>
-                    Um jogo clássico desenvolvido para praticar lógica em JavaScript,
-                    manipulação do DOM e interação com o usuário.<br>
-                    O jogador enfrenta o computador com placar em tempo real.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-                <a href="../projetos/Pedra_Papel_Tesoura/index.html" class="btn">
-                    Jogar agora →
-                </a>
-            </div>
+        <div class="project-body">
+          <h3>Este Site (Portfólio)</h3>
+          <p>
+            Um site totalmente focado em catalogar meus estudos, projetos e
+            certificados.<br />
+            Desenvolvi toda a estrutura do site e utilizei o DeepSeek como apoio
+            na estilização com CSS.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="#" class="btn" onclick="return false;"> Ver projeto → </a>
         </div>
+      </div>
 
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-                <span class="project-icon">🎲📚</span>
-            </div>
-            <div class="project-body">
-                <h3>Roleta de Estudos</h3>
-                <p>
-                    Uma ferramenta interativa criada para ajudar na organização dos estudos.
-                    O usuário adiciona cursos e quantidades de aulas, e o sistema sorteia
-                    automaticamente a próxima aula mantendo a progressão correta de cada curso.
-                    <br><br>
-                    Projeto focado em lógica de programação, manipulação de arrays,
-                    eventos e atualização dinâmica da interface utilizando JavaScript.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-                <a href="../projetos/Roleta_Estudos/index.html" class="btn">
-                    Abrir roleta →
-                </a>
-            </div>
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #22c55e, #16a34a)"
+        >
+          <span class="project-icon">✊📄✂️</span>
         </div>
-
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #2563eb, #1e3a8a);">
-                <span class="project-icon">🔐</span>
-            </div>
-            <div class="project-body">
-                <h3>Gerador de Senha Aleatória</h3>
-                <p>
-                    Ferramenta desenvolvida para gerar senhas seguras com personalização.
-                    O usuário pode escolher o tamanho da senha e incluir letras minúsculas,
-                    maiúsculas, números e símbolos.<br><br>
-                    Projeto criado para praticar lógica de programação,
-                    manipulação do DOM e geração de valores aleatórios com JavaScript.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-                <a href="../projetos/gerador_senha/index.html" class="btn">
-                    Abrir gerador →
-                </a>
-            </div>
+        <div class="project-body">
+          <h3>Pedra, Papel e Tesoura</h3>
+          <p>
+            Um jogo clássico desenvolvido para praticar lógica em JavaScript,
+            manipulação do DOM e interação com o usuário.<br />
+            O jogador enfrenta o computador com placar em tempo real.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="../projetos/Pedra_Papel_Tesoura/index.html" class="btn">
+            Jogar agora →
+          </a>
         </div>
+      </div>
 
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #06b6d4, #0ea5e9);">
-                <span class="project-icon">⏱️</span>
-            </div>
-            <div class="project-body">
-                <h3>Calculadora de Horários</h3>
-                <p>
-                    Uma ferramenta criada para converter valores de tempo entre anos, meses,
-                    dias, horas, minutos e segundos.<br><br>
-                    O projeto surgiu para ajudar na organização dos meus estudos,
-                    principalmente ao calcular o tempo total de playlists e metas de estudo.
-                    <br><br>
-                    Projeto focado em lógica de programação, manipulação de inputs
-                    e conversão de unidades de tempo utilizando JavaScript.
-                </p>
-
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-
-                <a href="../projetos/Calculadora_horario/index.html" class="btn">
-                    Abrir calculadora →
-                </a>
-            </div>
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #f59e0b, #ef4444)"
+        >
+          <span class="project-icon">🎲📚</span>
         </div>
-
-        <div class="project-card">
-            <div class="project-header" style="background: linear-gradient(135deg, #10b981, #047857);">
-                <span class="project-icon">✅📝</span>
-            </div>
-            <div class="project-body">
-                <h3>Lista de Tarefas</h3>
-                <p>
-                    Um aplicativo de To-Do list construído para praticar manipulação do DOM.
-                    Permite adicionar e remover tarefas dinamicamente da tela interativa.
-                    <br><br>
-                    Projeto com Dark Mode e código JavaScript focado em boas práticas de lógica.
-                </p>
-
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-
-                <a href="../projetos/Lista_de_Tarefas/index.html" class="btn">
-                    Abrir projeto →
-                </a>
-            </div>
+        <div class="project-body">
+          <h3>Roleta de Estudos</h3>
+          <p>
+            Uma ferramenta interativa criada para ajudar na organização dos
+            estudos. O usuário adiciona cursos e quantidades de aulas, e o
+            sistema sorteia automaticamente a próxima aula mantendo a progressão
+            correta de cada curso.
+            <br /><br />
+            Projeto focado em lógica de programação, manipulação de arrays,
+            eventos e atualização dinâmica da interface utilizando JavaScript.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="../projetos/Roleta_Estudos/index.html" class="btn">
+            Abrir roleta →
+          </a>
         </div>
+      </div>
+
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #2563eb, #1e3a8a)"
+        >
+          <span class="project-icon">🔐</span>
+        </div>
+        <div class="project-body">
+          <h3>Gerador de Senha Aleatória</h3>
+          <p>
+            Ferramenta desenvolvida para gerar senhas seguras com
+            personalização. O usuário pode escolher o tamanho da senha e incluir
+            letras minúsculas, maiúsculas, números e símbolos.<br /><br />
+            Projeto criado para praticar lógica de programação, manipulação do
+            DOM e geração de valores aleatórios com JavaScript.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <a href="../projetos/gerador_senha/index.html" class="btn">
+            Abrir gerador →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #06b6d4, #0ea5e9)"
+        >
+          <span class="project-icon">⏱️</span>
+        </div>
+        <div class="project-body">
+          <h3>Calculadora de Horários</h3>
+          <p>
+            Uma ferramenta criada para converter valores de tempo entre anos,
+            meses, dias, horas, minutos e segundos.<br /><br />
+            O projeto surgiu para ajudar na organização dos meus estudos,
+            principalmente ao calcular o tempo total de playlists e metas de
+            estudo.
+            <br /><br />
+            Projeto focado em lógica de programação, manipulação de inputs e
+            conversão de unidades de tempo utilizando JavaScript.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+
+          <a href="../projetos/Calculadora_horario/index.html" class="btn">
+            Abrir calculadora →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #10b981, #047857)"
+        >
+          <span class="project-icon">✅📝</span>
+        </div>
+        <div class="project-body">
+          <h3>Lista de Tarefas</h3>
+          <p>
+            Um aplicativo de To-Do list construído para praticar manipulação do
+            DOM. Permite adicionar e remover tarefas dinamicamente da tela
+            interativa.
+            <br /><br />
+            Projeto com Dark Mode e código JavaScript focado em boas práticas de
+            lógica.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+
+          <a href="../projetos/Lista_de_Tarefas/index.html" class="btn">
+            Abrir projeto →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #f87070, #d946ef)"
+        >
+          <span class="project-icon">🍅⏱️</span>
+        </div>
+        <div class="project-body">
+          <h3>
+            Relógio Pomodoro
+            <small style="font-size: 0.75em; opacity: 0.8; font-weight: normal"
+              >(Em fase de desenvolvimento)</small
+            >
+          </h3>
+          <p>
+            Um temporizador de produtividade baseado na técnica Pomodoro.<br />
+            Alterne entre foco, pausa curta e pausa longa com interface moderna
+            e cores dinâmicas.<br /><br />
+            Projeto ideal para praticar <code>setInterval</code>,
+            <code>clearInterval</code>, manipulação do DOM e lógica de tempo em
+            JavaScript.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+
+          <a href="../projetos/Relogio_Pomodoro/index.html" class="btn">
+            Abrir projeto →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div
+          class="project-header"
+          style="background: linear-gradient(135deg, #8b5cf6, #ec4899)"
+        >
+          <span class="project-icon">🔮🎯</span>
+        </div>
+        <div class="project-body">
+          <h3>
+            Jogo do Número Secreto
+            <small style="font-size: 0.75em; opacity: 0.8; font-weight: normal"
+              >(Em fase de desenvolvimento)</small
+            >
+          </h3>
+          <p>
+            Um jogo clássico de adivinhação onde o jogador tenta acertar o
+            número sorteado entre 1 e 100 com dicas visuais dinâmicas.<br /><br />
+            Projeto criado para praticar <code>Math.random()</code>, estruturas
+            condicionais (<code>if/else</code>), manipulação do DOM e contagem
+            de tentativas.
+          </p>
+
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+
+          <a href="../projetos/Jogo_Numero_Secreto/index.html" class="btn">
+            Abrir jogo →
+          </a>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <p>© 2026 Guilherme Teles Pacheco • Todos os direitos reservados</p>
+      <p>© 2026 Guilherme Teles Pacheco • Todos os direitos reservados</p>
     </footer>
 
     <script src="../js/script.js"></script>
-</body>
-
+  </body>
 </html>

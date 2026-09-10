@@ -2,10 +2,10 @@
 /* ===== VARIÁVEIS E RESET ==================== */
 /* ============================================ */
 :root {
-    /* Cores dos modos que você pode alterar com JavaScript depois */
-    --bg-color: #f87070; /* Cor padrão: Vermelho do Foco */
-    --card-bg: rgba(255, 255, 255, 0.15); /* Fundo de vidro */
-    --text-color: #ffffff;
+    /* Cores dos modos (Tons Dark elegantes) */
+    --bg-color: #121214; /* Foco (Padrão Dark Charcoal / Vinho sutil) */
+    --card-bg: rgba(22, 22, 29, 0.65); /* Fundo de vidro escuro */
+    --text-color: #f0f0f5;
     
     /* Fontes modernas */
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -125,7 +125,9 @@ body {
     padding: 15px 30px;
     font-size: 1.1rem;
     font-weight: bold;
-    border: none;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -133,33 +135,66 @@ body {
     letter-spacing: 1px;
 }
 
-.control-btn.primary {
-    background: white;
-    color: var(--bg-color); /* A cor da letra será a mesma do fundo do site */
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-}
-
-.control-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
-}
-
-.control-btn.secondary, .control-btn.reset {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.control-btn.secondary:hover, .control-btn.reset:hover {
+.control-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
 }
 
 /* ============================================ */
-/* ===== STATUS MSG =========================== */
+/* ===== RESPONSIVIDADE (MOBILE) ============== */
 /* ============================================ */
-.status-msg {
-    font-size: 1.1rem;
-    font-weight: 500;
-    opacity: 0.9;
+@media (max-width: 600px) {
+    body {
+        padding: 80px 15px 20px 15px; /* Espaço para o botão voltar não sobrepor */
+        align-items: flex-start;
+    }
+
+    .back-btn {
+        top: 15px;
+        left: 15px;
+        font-size: 0.85rem;
+        padding: 8px 14px;
+    }
+
+    .pomodoro-container {
+        padding: 25px 15px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .modes {
+        gap: 5px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+    .mode-btn {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        flex: 1 1 auto;
+    }
+
+    .timer-display {
+        font-size: 3.8rem;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+    }
+
+    .controls {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .control-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        flex: 1 1 auto; /* Os botões se ajustam lado a lado sem estourar a tela */
+        min-width: 80px;
+    }
+
+    .status-msg {
+        font-size: 0.95rem;
+    }
 }
+
