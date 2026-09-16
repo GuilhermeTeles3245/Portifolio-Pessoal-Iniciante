@@ -4,6 +4,17 @@ Este arquivo serve para registrar de forma organizada e cronológica todas as me
 
 ---
 
+## 📌 [Versão 1.4] - 16/09/2026
+
+### 🏷️ Ajuste no Menu: "Sobre"
+- Alterado o texto do menu em todas as páginas (`index.html`, `pages/sobre.html`, `pages/conteudos.html`, `pages/projetos.html`) de **"Sobre Mim"** para **"Sobre"**, atendendo à preferência de design.
+
+### 🌐 Correção Definitiva para o Netlify (Clean URLs)
+- **Problema identificado:** No Netlify (`portifolio-guilhermeteles.netlify.app`), as URLs são limpas (Pretty URLs) e não terminam com `.html` (ex: `/pages/sobre`). O código anterior verificava `!filename.endsWith('.html')` e achava equivocadamente que qualquer página sem `.html` era a Home, ativando sempre o botão "Início".
+- **Solução implementada:** O `highlightActiveLink()` agora verifica diretamente a rota/seção (`sobre`, `conteudo`, `projeto` ou `inicio`). Agora, quando você está em `/pages/sobre`, o botão **"Sobre"** fica ativo perfeitamente!
+
+---
+
 ## 📌 [Versão 1.3] - 16/09/2026
 
 ### 🏷️ Padronização do Menu de Navegação

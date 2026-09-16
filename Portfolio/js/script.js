@@ -66,40 +66,40 @@ function toggleTheme() {
 // ============================================
 
 function highlightActiveLink() {
-    // Normaliza o caminho da URL atual
-    const pathname = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-    const filename = pathname.split('/').filter(Boolean).pop() || 'index.html';
+    const path = window.location.pathname.replace(/\\/g, '/').toLowerCase();
     
-    // Identifica se estamos na Home (se for index.html ou se a URL não terminar com arquivo .html)
-    const isHome = !filename.endsWith('.html') || filename === 'index.html';
+    // Identifica com precisão a seção atual (funciona no Netlify com URLs limpas, GitHub Pages, localhost e file://)
+    let currentSection = 'inicio';
+    
+    if (path.includes('sobre')) {
+        currentSection = 'sobre';
+    } else if (path.includes('conteudo')) {
+        currentSection = 'conteudos';
+    } else if (path.includes('projeto')) {
+        currentSection = 'projetos';
+    } else {
+        currentSection = 'inicio';
+    }
 
     const links = document.querySelectorAll('.nav-menu a:not(.theme-btn)');
-    let activeFound = false;
     
     links.forEach(link => {
         link.classList.remove('active');
         const href = (link.getAttribute('href') || '').replace(/\\/g, '/').toLowerCase();
-        const linkFile = href.split('/').filter(Boolean).pop() || '';
+        
+        let linkSection = 'inicio';
+        if (href.includes('sobre')) {
+            linkSection = 'sobre';
+        } else if (href.includes('conteudo')) {
+            linkSection = 'conteudos';
+        } else if (href.includes('projeto')) {
+            linkSection = 'projetos';
+        }
 
-        if (isHome) {
-            // Na Home, ativa o link que aponta para o index.html
-            if (linkFile === 'index.html' || href === '' || href === './' || href === '/') {
-                link.classList.add('active');
-                activeFound = true;
-            }
-        } else {
-            // Nas demais páginas, ativa o link que corresponde ao arquivo atual (ex: sobre.html, conteudos.html, projetos.html)
-            if (linkFile === filename) {
-                link.classList.add('active');
-                activeFound = true;
-            }
+        if (linkSection === currentSection) {
+            link.classList.add('active');
         }
     });
-
-    // Fallback de segurança: se estiver na Home e nada bateu, ativa o primeiro link (Início)
-    if (isHome && !activeFound && links.length > 0) {
-        links[0].classList.add('active');
-    }
 }
 
 // ============================================
