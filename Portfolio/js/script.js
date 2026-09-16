@@ -66,36 +66,37 @@ function toggleTheme() {
 // ============================================
 
 function highlightActiveLink() {
-    const rawPath = window.location.pathname.toLowerCase();
-    const segments = rawPath.split('/').filter(Boolean);
-    const lastSegment = segments.pop() || 'index.html';
+    // Normaliza o caminho da URL atual
+    const pathname = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+    const filename = pathname.split('/').filter(Boolean).pop() || 'index.html';
     
-    // Identifica se estamos na Home (se for index.html ou se a rota não terminar com arquivo .html)
-    const isHome = !lastSegment.endsWith('.html') || lastSegment === 'index.html';
+    // Identifica se estamos na Home (se for index.html ou se a URL não terminar com arquivo .html)
+    const isHome = !filename.endsWith('.html') || filename === 'index.html';
 
     const links = document.querySelectorAll('.nav-menu a:not(.theme-btn)');
     let activeFound = false;
     
     links.forEach(link => {
         link.classList.remove('active');
-        const href = (link.getAttribute('href') || '').toLowerCase();
-        
+        const href = (link.getAttribute('href') || '').replace(/\\/g, '/').toLowerCase();
+        const linkFile = href.split('/').filter(Boolean).pop() || '';
+
         if (isHome) {
             // Na Home, ativa o link que aponta para o index.html
-            if (href.endsWith('index.html') || href === './' || href === '/') {
+            if (linkFile === 'index.html' || href === '' || href === './' || href === '/') {
                 link.classList.add('active');
                 activeFound = true;
             }
         } else {
-            // Nas demais páginas, ativa o link correspondente ao arquivo atual
-            if (href.endsWith(lastSegment)) {
+            // Nas demais páginas, ativa o link que corresponde ao arquivo atual (ex: sobre.html, conteudos.html, projetos.html)
+            if (linkFile === filename) {
                 link.classList.add('active');
                 activeFound = true;
             }
         }
     });
 
-    // Se estiver na Home e por acaso nenhum link bateu, ativa com segurança o primeiro link (Início)
+    // Fallback de segurança: se estiver na Home e nada bateu, ativa o primeiro link (Início)
     if (isHome && !activeFound && links.length > 0) {
         links[0].classList.add('active');
     }

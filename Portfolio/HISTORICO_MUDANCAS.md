@@ -4,6 +4,17 @@ Este arquivo serve para registrar de forma organizada e cronológica todas as me
 
 ---
 
+## 📌 [Versão 1.3] - 16/09/2026
+
+### 🏷️ Padronização do Menu de Navegação
+- **Texto padronizado:** Corrigido o texto do link na página inicial (`index.html`), que estava apenas como **"👤 Sobre"**, para **"👤 Sobre Mim"**, ficando 100% alinhado com todas as outras páginas do site.
+
+### 🎨 Correção e Proteção do CSS Ativo (`.active`) ao Mudar de Página
+- **Destaque infalível:** A função `highlightActiveLink()` foi simplificada e blindada para extrair diretamente o nome do arquivo final de cada link e comparar com a página atual. Toda vez que você navega entre as abas (Início, Sobre Mim, Conteúdos, Projetos), o efeito roxo com gradiente se move dinamicamente para a aba correspondente.
+- **Proteção do Hover no CSS (`style.css`):** Adicionada a proteção `:hover:not(.active)`. Antes, ao passar o mouse por cima do botão já ativo no modo escuro, o efeito de hover sobrescrevia temporariamente o gradiente roxo, parecendo que o CSS estava "bugado". Agora, o botão ativo nunca perde o destaque roxo ao receber o mouse.
+
+---
+
 ## 📌 [Versão 1.2] - 16/09/2026
 
 ### 🎨 Correção Visual do Menu de Navegação (Home)

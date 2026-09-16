@@ -79,7 +79,7 @@ body.dark-mode .nav-menu a {
     color: #e0e0e0 !important;
 }
 
-body.dark-mode .nav-menu a:hover {
+body.dark-mode .nav-menu a:hover:not(.active) {
     background: rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -212,15 +212,15 @@ body.dark-mode .theme-btn:hover {
     flex-shrink: 0;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover:not(.active) {
     background: var(--nav-hover);
     transform: translateY(-2px);
     color: #667eea;
 }
 
 .nav-menu a.active {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white !important;
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
