@@ -66,18 +66,39 @@ function toggleTheme() {
 // ============================================
 
 function highlightActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const rawPath = window.location.pathname.toLowerCase();
+    const segments = rawPath.split('/').filter(Boolean);
+    const lastSegment = segments.pop() || 'index.html';
+    
+    // Identifica se estamos na Home (se for index.html ou se a rota não terminar com arquivo .html)
+    const isHome = !lastSegment.endsWith('.html') || lastSegment === 'index.html';
+
     const links = document.querySelectorAll('.nav-menu a:not(.theme-btn)');
+    let activeFound = false;
     
     links.forEach(link => {
         link.classList.remove('active');
-        const linkHref = link.getAttribute('href');
+        const href = (link.getAttribute('href') || '').toLowerCase();
         
-        // Verifica se o href termina com a página atual
-        if (linkHref.endsWith(currentPage) || (currentPage === 'index.html' && linkHref === '../index.html')) {
-            link.classList.add('active');
+        if (isHome) {
+            // Na Home, ativa o link que aponta para o index.html
+            if (href.endsWith('index.html') || href === './' || href === '/') {
+                link.classList.add('active');
+                activeFound = true;
+            }
+        } else {
+            // Nas demais páginas, ativa o link correspondente ao arquivo atual
+            if (href.endsWith(lastSegment)) {
+                link.classList.add('active');
+                activeFound = true;
+            }
         }
     });
+
+    // Se estiver na Home e por acaso nenhum link bateu, ativa com segurança o primeiro link (Início)
+    if (isHome && !activeFound && links.length > 0) {
+        links[0].classList.add('active');
+    }
 }
 
 // ============================================
