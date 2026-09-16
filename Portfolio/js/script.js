@@ -11,14 +11,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. Destacar link ativo no menu
     highlightActiveLink();
     
-    // 3. Atualizar/Contar certificados e inicializar filtros
+    // 3. Atualizar/Contar certificados e inicializar filtros se estiver na página de conteúdos
     if (document.querySelector(".cert-grid")) {
-        // Se estiver na página de conteúdos, conta os itens, ordena e ativa filtros
         countAndSaveCerts();
         sortCertCards();
         initFilters(); // Inicializa os botões de filtro por instituição
-    } else {
-        // Se estiver na home, tenta buscar e atualizar os stats
+    }
+    
+    // 4. Atualizar/Contar projetos se estiver na página de projetos
+    if (document.querySelector(".projects-grid")) {
+        countAndSaveProjects();
+    }
+    
+    // 5. Se estiver na home (ou tiver elementos de estatísticas), busca e atualiza os stats
+    if (document.getElementById('projetos_criados') || document.getElementById('em_andamento') || document.querySelector(".stats-container")) {
         updateStats();
     }
 });
@@ -75,7 +81,7 @@ function highlightActiveLink() {
 }
 
 // ============================================
-// ===== ESTATÍSTICAS E CERTIFICADOS ==========
+// ===== ESTATÍSTICAS (CERTIFICADOS E PROJETOS)
 // ============================================
 
 function countAndSaveCerts() {
@@ -87,10 +93,17 @@ function countAndSaveCerts() {
     console.log("Certificados contados na página:", andamento, "andamento,", concluido, "concluídos");
 }
 
+function countAndSaveProjects() {
+    const totalProjetos = document.querySelectorAll(".projects-grid .project-card").length;
+    localStorage.setItem('total_projetos', totalProjetos);
+    console.log("Projetos contados na página:", totalProjetos);
+}
+
 async function updateStats() {
     const statAndamento = document.getElementById('em_andamento');
     const statFinalizado = document.getElementById('finalizados');
     const statMeses = document.getElementById('meses_estudo');
+    const statProjetos = document.getElementById('projetos_criados');
     
     // ---- Cálculo automático de meses de estudo ----
     if (statMeses) {
@@ -102,18 +115,23 @@ async function updateStats() {
     }
     // -----------------------------------------------
     
-    if (!statAndamento || !statFinalizado) return;
+    // Mostra primeiro o que tem no localStorage para carregamento imediato
+    if (statAndamento && localStorage.getItem('cursos_andamento') !== null) {
+        statAndamento.innerHTML = localStorage.getItem('cursos_andamento');
+    }
+    if (statFinalizado && localStorage.getItem('cursos_concluidos') !== null) {
+        statFinalizado.innerHTML = localStorage.getItem('cursos_concluidos');
+    }
+    if (statProjetos && localStorage.getItem('total_projetos') !== null) {
+        statProjetos.innerHTML = localStorage.getItem('total_projetos');
+    }
 
-    // Primeiro, mostra o que tem no localStorage para carregamento rápido
-    statAndamento.innerHTML = localStorage.getItem('cursos_andamento') || '0';
-    statFinalizado.innerHTML = localStorage.getItem('cursos_concluidos') || '0';
+    const isRoot = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || !window.location.pathname.includes('/pages/');
 
-    // Em seguida, tenta buscar os dados atualizados (útil se estiver rodando em um servidor/GitHub Pages)
+    // Em seguida, tenta buscar os dados atualizados de certificados (via servidor/GitHub Pages)
     try {
-        const isRoot = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
-        const url = isRoot ? 'pages/conteudos.html' : 'conteudos.html';
-        
-        const response = await fetch(url);
+        const urlConteudos = isRoot ? 'pages/conteudos.html' : 'conteudos.html';
+        const response = await fetch(urlConteudos);
         if (response.ok) {
             const html = await response.text();
             const parser = new DOMParser();
@@ -122,14 +140,34 @@ async function updateStats() {
             const andamento = doc.querySelectorAll('.cert-badge.ongoing').length;
             const concluido = doc.querySelectorAll('.cert-badge.completed').length;
             
-            statAndamento.innerHTML = andamento;
-            statFinalizado.innerHTML = concluido;
+            if (statAndamento) statAndamento.innerHTML = andamento;
+            if (statFinalizado) statFinalizado.innerHTML = concluido;
             
             localStorage.setItem('cursos_andamento', andamento);
             localStorage.setItem('cursos_concluidos', concluido);
         }
     } catch (error) {
-        console.log("Fetch bloqueado (CORS via file://). Usando dados do localStorage.");
+        console.log("Fetch de conteúdos bloqueado (CORS via file://). Usando dados salvos.");
+    }
+
+    // Tenta buscar os dados atualizados de projetos (via servidor/GitHub Pages)
+    try {
+        const urlProjetos = isRoot ? 'pages/projetos.html' : 'projetos.html';
+        const respProjetos = await fetch(urlProjetos);
+        if (respProjetos.ok) {
+            const htmlProjetos = await respProjetos.text();
+            const parser = new DOMParser();
+            const docProjetos = parser.parseFromString(htmlProjetos, 'text/html');
+            
+            const totalProjetos = docProjetos.querySelectorAll('.projects-grid .project-card').length;
+            
+            if (statProjetos && totalProjetos > 0) {
+                statProjetos.innerHTML = totalProjetos;
+            }
+            localStorage.setItem('total_projetos', totalProjetos);
+        }
+    } catch (error) {
+        console.log("Fetch de projetos bloqueado (CORS via file://). Usando dados salvos.");
     }
 }
 
